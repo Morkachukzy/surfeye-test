@@ -1,7 +1,7 @@
-import { IconProps } from './core';
+import { Icon, type IconProps } from './core';
 
-export const UserIcon = ({ ...props }: IconProps) => (
-  <svg
+export const UserIcon = (props: IconProps) => (
+  <Icon
     xmlns="http://www.w3.org/2000/svg"
     width="19"
     height="19"
@@ -23,5 +23,5 @@ export const UserIcon = ({ ...props }: IconProps) => (
       stroke="#F8F8F8"
       strokeWidth="1.81481"
     />
-  </svg>
+  </Icon>
 );

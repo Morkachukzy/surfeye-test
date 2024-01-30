@@ -1,6 +1,6 @@
 import { Icon, type IconProps } from './core';
 
-export const ChevronLeftIcon = ({ ...props }: IconProps) => (
+export const ChevronLeftIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
     width="100%"

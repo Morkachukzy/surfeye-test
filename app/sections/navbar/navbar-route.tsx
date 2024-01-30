@@ -22,12 +22,12 @@ export const NavbarRoute = ({ route }: NavbarRouteProps) => {
   return (
     <>
       {route.children ? (
-        <button className="flex items-center gap-3 leading-none uppercase italic font-semibold">
+        <button className="flex items-center gap-3 leading-none uppercase font-semibold">
           {getRouteDetails(route)}
         </button>
       ) : (
         <Link
-          className="flex items-center gap-3 leading-none uppercase italic font-semibold"
+          className="flex items-center gap-3 leading-none uppercase font-semibold"
           href={route.href}
         >
           {getRouteDetails(route)}

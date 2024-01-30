@@ -1,7 +1,7 @@
-import { IconProps } from './core';
+import { Icon, type IconProps } from './core';
 
-export const ChevronDownIcon = ({ ...props }: IconProps) => (
-  <svg
+export const ChevronDownIcon = (props: IconProps) => (
+  <Icon
     xmlns="http://www.w3.org/2000/svg"
     width="16"
     height="9"
@@ -16,5 +16,5 @@ export const ChevronDownIcon = ({ ...props }: IconProps) => (
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-  </svg>
+  </Icon>
 );

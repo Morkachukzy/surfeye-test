@@ -11,9 +11,7 @@ export const Navbar = () => {
         <span className="w-6 md:w-7 h-6 md:h-7">
           <ChevronLeftIcon />
         </span>
-        <span className="text-2xl lg:text-3xl italic font-semibold">
-          Nova praia
-        </span>
+        <span className="text-2xl lg:text-3xl font-semibold">Nova praia</span>
       </div>
       <div className="relative flex bg-brand-primary pb-3 md:pb-[.875rem] pt-3 md:pt-2 px-8 md:px-20 xl:px-24 items-center justify-center md:justify-between gap-8">
         <span className="flex-1 lg:flex-none flex items-center justify-center">

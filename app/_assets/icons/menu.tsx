@@ -1,6 +1,6 @@
 import { Icon, type IconProps } from './core';
 
-export const MenuIcon = ({ ...props }: IconProps) => (
+export const MenuIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
     width="29"

@@ -1,7 +1,9 @@
+import { Navbar } from '@/app/components/navbar';
+
 export default function Home() {
   return (
-    <main className="font-exo italic text-2xl text-brand-green">
-      THIS IS IT peeps
+    <main className="font-exo text-brand-primary">
+      <Navbar />
     </main>
   );
 }

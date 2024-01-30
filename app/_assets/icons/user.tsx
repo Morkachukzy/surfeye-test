@@ -1,10 +1,13 @@
-export const UserIcon = () => (
+import { IconProps } from './core';
+
+export const UserIcon = ({ ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="19"
     height="19"
     viewBox="0 0 19 19"
     fill="none"
+    {...props}
   >
     <rect
       x="5.67188"

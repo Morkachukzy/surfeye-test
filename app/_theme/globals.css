@@ -35,6 +35,8 @@ main,
   --brand-radius-300: 48px;
   --brand-radius-400: 50px;
 
+  --brand-font-size-md: 1rem;
+
   --brand-background: var(--brand-light);
   --brand-foreground: var(--brand-primary);
 }

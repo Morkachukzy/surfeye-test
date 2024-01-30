@@ -29,6 +29,9 @@ const config: Config = {
       fontFamily: {
         exo: ['var(--font-exo)'],
       },
+      fontSize: {
+        'brand-md': 'var(--brand-font-size-md)',
+      },
       boxShadow: {
         'brand-100': 'var(--brand-shadow-100)',
         'brand-200': 'var(--brand-shadow-200)',

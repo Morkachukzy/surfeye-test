@@ -18,10 +18,14 @@ export const FeaturesSection = () => {
         {features.map(({ title, description, icon: Icon }, index) => (
           <FeatureCard key={index}>
             <div className="space-y-1 flex-1">
-              <p className="uppercase font-bold">{title}</p>
-              <p className="font-medium ">{description}</p>
+              <p className="uppercase font-bold text-xs md:text-brand-md">
+                {title}
+              </p>
+              <p className="font-medium text-xs md:text-brand-md">
+                {description}
+              </p>
             </div>
-            <div className="">
+            <div className="w-10 md:w-14">
               <Icon />
             </div>
           </FeatureCard>

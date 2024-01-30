@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+main,
+#__next {
+  height: 100%;
+  width: 100%;
+}
+
+:root {
+  --brand-primary: 1, 36, 60; /* #01243C */
+
+  --brand-light: 248, 248, 248; /* #F8F8F8 */
+
+  --brand-green: 0, 200, 81; /* #00C851 */
+  --brand-lemon-green: 0, 126, 51; /* #007E33 */
+  --brand-dark-green: 0, 128, 128; /* #008080 */
+  --brand-yellow: 250, 186, 6; /* #FABA06 */
+  --brand-red: 233, 27, 27; /* #E91B1B */
+
+  --brand-shadow-100: -4.5px -2.3px 8.5px 0px rgba(0, 0, 0, 0.25);
+  --brand-shadow-200: 0px -9px 59px 0px rgba(0, 0, 0, 0.25);
+  --brand-shadow-300: 0px 4px 14px 0px rgba(0, 0, 0, 0.1);
+  --brand-shadow-400: 0px 4.6px 14px 0px rgba(0, 0, 0, 0.17);
+  --brand-shadow-500: 0px 4.7px 4.7px 0px rgba(0, 0, 0, 0.05);
+  --brand-shadow-600: 0px 6px 6px 0px rgba(0, 0, 0, 0.05);
+  --brand-shadow-700: 0px 8px 28px 0px rgba(0, 0, 0, 0.1);
+  --brand-shadow-800: 0px 11px 39px 0px rgba(0, 0, 0, 0.1);
+
+  --brand-radius-100: 23px;
+  --brand-radius-200: 38px;
+  --brand-radius-300: 48px;
+  --brand-radius-400: 50px;
+
+  --brand-background: var(--brand-light);
+  --brand-foreground: var(--brand-primary);
+}
+
+body {
+  background-color: rgb(var(--brand-background));
+  color: rgb(var(--brand-foreground));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

@@ -8,6 +8,8 @@ import {
 import { StarRating } from '@/app/components/star-rating';
 import { Badge } from '@/app/components/badge';
 import { DirectionIcon, SurfWaveIcon, WaveIcon } from '@/app/_assets/icons';
+import { analyticsData } from './analytics-data';
+import { cn } from '@/app/_theme/utils';
 
 export const AnalyticsSection = () => {
   return (
@@ -20,64 +22,42 @@ export const AnalyticsSection = () => {
           90 min
         </button>
       </div>
-      <div className="flex items-stretch gap-10">
-        <AnalyticCard className="space-y-8">
-          <AnalyticCardTitle>Conditions rating</AnalyticCardTitle>
-          <StarRating level={4} />
-        </AnalyticCard>
-        <AnalyticCard>
-          <AnalyticCardTitle>Average ride time</AnalyticCardTitle>
-          <div className="flex items-start gap-5 mb-3">
-            <AnalyticCardValue className="flex items-end gap-2">
-              <span className="leading-none">8</span>
-              <span className="font-semibold text-brand-md lowercase">
-                seconds
-              </span>
-            </AnalyticCardValue>
-            <Badge className="bg-brand-green text-white">Good</Badge>
-          </div>
-          <AnalyticCardInfoText>
-            <WaveIcon className="w-3 h-3" />4 week average 11sec
-          </AnalyticCardInfoText>
-        </AnalyticCard>
-        <AnalyticCard>
-          <AnalyticCardTitle>Waves surfed</AnalyticCardTitle>
-          <div className="flex items-start gap-5 mb-3">
-            <AnalyticCardValue className="flex items-end gap-2">
-              <span className="leading-none">312</span>
-            </AnalyticCardValue>
-            <Badge className="bg-brand-red text-white">Crowded</Badge>
-          </div>
-          <AnalyticCardInfoText>
-            <SurfWaveIcon className="w-3 h-3" />
-            Average 150
-          </AnalyticCardInfoText>
-        </AnalyticCard>
-        <AnalyticCard>
-          <AnalyticCardTitle>Rides' direction split</AnalyticCardTitle>
-          <div className="flex items-start gap-5 mb-3">
-            <AnalyticCardValue className="flex items-start gap-2">
-              <span className="leading-none flex flex-col items-start gap-1">
-                <span className="">40</span>
-                <span className="text-brand-md uppercase font-medium">
-                  lefts
-                </span>
-              </span>
-              <span className="leading-none">|</span>
-              <span className="leading-none flex flex-col items-start gap-1">
-                <span className="">60</span>
-                <span className="text-brand-md uppercase font-medium">
-                  rights
-                </span>
-              </span>
-            </AnalyticCardValue>
-          </div>
-          <AnalyticCardInfoText>
-            <DirectionIcon className="w-3 h-3" />
-            Average 30|70
-          </AnalyticCardInfoText>
-        </AnalyticCard>
+      <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-4 items-stretch justify-center gap-8 flex-wrap">
+        {analyticsData.map((analytic) => (
+          <AnalyticCard
+            key={analytic.title}
+            className={cn('flex-none', {
+              'order-last ': analytic.id === 'rides-direction-split',
+            })}
+          >
+            <AnalyticCardTitle>{analytic.title}</AnalyticCardTitle>
+            <analytic.render />
+          </AnalyticCard>
+        ))}
       </div>
+      <AnalyticCard className="grid md:hidden grid-cols-2 gap-x-4 gap-y-5">
+        {analyticsData.map((analytic) => (
+          <div
+            key={analytic.title}
+            className={cn(
+              'brand-big-phone:w-brand-fit brand-big-phone:mx-auto',
+              {
+                'flex-1 ': analytic.id === 'rides-direction-split',
+              }
+            )}
+          >
+            <AnalyticCardTitle
+              className={cn({
+                'text-center  brand-big-phone:text-left':
+                  analytic.id === 'waves-surfed',
+              })}
+            >
+              {analytic.title}
+            </AnalyticCardTitle>
+            <analytic.render />
+          </div>
+        ))}
+      </AnalyticCard>
     </SectionLayout>
   );
 };

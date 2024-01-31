@@ -36,12 +36,24 @@ main,
   --brand-radius-400: 50px;
 
   --brand-font-size-md: 1rem;
+  --brand-font-size-2xl: 2.125rem;
   --brand-font-size-3xl: 2.5rem;
+
+  --brand-width-fit: fit-content;
+  --brand-max-width-section: 80.625rem;
 
   --brand-background: var(--brand-light);
   --brand-foreground: var(--brand-primary);
 
-  --brand-border-gradient-primary: linear-gradient(
+  --brand-border-gradient-primary-mobile: linear-gradient(
+    295deg,
+    rgba(0, 128, 128, 1) 0%,
+    rgba(248, 248, 248, 1) 44%,
+    rgba(248, 248, 248, 1) 56%,
+    rgba(0, 128, 128, 1) 100%
+  );
+
+  --brand-border-gradient-primary-desktop: linear-gradient(
     308deg,
     rgba(0, 128, 128, 1) 0%,
     rgba(248, 248, 248, 1) 44%,
@@ -71,11 +83,17 @@ h6 {
   &::after {
     content: '';
     position: absolute;
-    inset: -3px;
-    inset-inline: -4px;
-    background: var(--brand-border-gradient-primary);
+    inset: -2px;
+    inset-inline: -3px;
+    background: var(--brand-border-gradient-primary-mobile);
     z-index: -1;
     border-radius: inherit;
+
+    @media (min-width: 48rem) {
+      inset: -3px;
+      inset-inline: -4px;
+      background: var(--brand-border-gradient-primary-desktop);
+    }
   }
 }
 

@@ -1,3 +1,5 @@
+import type { Config } from 'tailwindcss';
+
 const withOpacity = (variableName: string): any => {
   return ({ opacityValue }: { opacityValue: number }) =>
     opacityValue
@@ -5,7 +7,7 @@ const withOpacity = (variableName: string): any => {
       : `rgb(var(${variableName}))`;
 };
 
-import type { Config } from 'tailwindcss';
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 const config: Config = {
   content: [
@@ -31,6 +33,7 @@ const config: Config = {
       },
       fontSize: {
         'brand-md': 'var(--brand-font-size-md)',
+        'brand-2xl': 'var(--brand-font-size-2xl)',
         'brand-3xl': 'var(--brand-font-size-3xl)',
       },
       boxShadow: {
@@ -48,6 +51,17 @@ const config: Config = {
         'brand-200': 'var(--brand-radius-200)',
         'brand-300': 'var(--brand-radius-300)',
         'brand-400': 'var(--brand-radius-400)',
+      },
+      width: {
+        'brand-fit': 'var(--brand-width-fit)',
+      },
+      maxWidth: {
+        'brand-section': 'var(--brand-max-width-section)',
+      },
+      screens: {
+        'brand-min': '24.375rem',
+        'brand-big-phone': '28.125rem',
+        ...defaultTheme.screens,
       },
     },
   },

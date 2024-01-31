@@ -26,6 +26,37 @@ export const AnalyticCardTitle = ({
   className,
 }: AnalyticCardTitleProps) => {
   return (
-    <p className={cn('uppercase font-medium text-lg', className)}>{children}</p>
+    <p className={cn('uppercase font-medium text-lg mb-2.5', className)}>
+      {children}
+    </p>
+  );
+};
+
+type AnalyticCardValueProps = Readonly<AnalyticCardBaseProps>;
+
+export const AnalyticCardValue = ({
+  children,
+  className,
+}: AnalyticCardValueProps) => {
+  return (
+    <p className={cn('text-brand-3xl font-bold ', className)}>{children}</p>
+  );
+};
+
+type AnalyticCardInfoTextProps = Readonly<AnalyticCardBaseProps>;
+
+export const AnalyticCardInfoText = ({
+  children,
+  className,
+}: AnalyticCardInfoTextProps) => {
+  return (
+    <p
+      className={cn(
+        'text-xs font-medium flex items-center gap-1 uppercase',
+        className
+      )}
+    >
+      {children}
+    </p>
   );
 };

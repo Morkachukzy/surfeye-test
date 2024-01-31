@@ -31,6 +31,7 @@ const config: Config = {
       },
       fontSize: {
         'brand-md': 'var(--brand-font-size-md)',
+        'brand-3xl': 'var(--brand-font-size-3xl)',
       },
       boxShadow: {
         'brand-100': 'var(--brand-shadow-100)',

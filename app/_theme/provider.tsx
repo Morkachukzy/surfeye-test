@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 export { appFonts } from './core/font';
-import './globals.css';
+import './globals.scss';
 
 type ThemeProviderProps = {
   children: ReactNode | React.ReactNode[];

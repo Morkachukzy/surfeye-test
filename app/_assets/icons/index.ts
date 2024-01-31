@@ -4,4 +4,5 @@ export * from './downloads';
 export * from './locations';
 export * from './menu';
 export * from './preview';
+export * from './star';
 export * from './user';

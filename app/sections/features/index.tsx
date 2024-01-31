@@ -1,11 +1,10 @@
 import { SectionLayout } from '@/app/layouts/section';
 import { FeatureCard } from './feature-card';
-import { DownloadIcon } from '@/app/_assets/icons';
 import { features } from './features';
 
 export const FeaturesSection = () => {
   return (
-    <SectionLayout>
+    <SectionLayout className="pb-[4.5rem]">
       <div className="flex items-center justify-between">
         <h2 className="uppercase text-2xl font-bold">
           Get surf eye <span className="text-brand-yellow">unlimited</span>
@@ -14,9 +13,9 @@ export const FeaturesSection = () => {
           Get started
         </button>
       </div>
-      <div className="flex items-center gap-4">
-        {features.map(({ title, description, icon: Icon }, index) => (
-          <FeatureCard key={index}>
+      <div className="flex flex-col md:flex-row items-center gap-4">
+        {features.map(({ title, description, icon: Icon }) => (
+          <FeatureCard key={title}>
             <div className="space-y-1 flex-1">
               <p className="uppercase font-bold text-xs md:text-brand-md">
                 {title}

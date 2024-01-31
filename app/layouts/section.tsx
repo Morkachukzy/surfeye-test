@@ -1,6 +1,13 @@
+import { cn } from '@/app/_theme/utils';
+
 type SectionLayoutProps = Readonly<{
   children: React.ReactNode;
+  className?: string;
 }>;
-export const SectionLayout = ({ children }: SectionLayoutProps) => {
-  return <section className="space-y-6 max-w-7xl mx-auto">{children}</section>;
+export const SectionLayout = ({ children, className }: SectionLayoutProps) => {
+  return (
+    <section className={cn('space-y-6 max-w-7xl mx-auto px-4', className)}>
+      {children}
+    </section>
+  );
 };

@@ -39,6 +39,14 @@ main,
 
   --brand-background: var(--brand-light);
   --brand-foreground: var(--brand-primary);
+
+  --brand-border-gradient-primary: linear-gradient(
+    308deg,
+    rgba(0, 128, 128, 1) 0%,
+    rgba(248, 248, 248, 1) 44%,
+    rgba(248, 248, 248, 1) 56%,
+    rgba(0, 128, 128, 1) 100%
+  );
 }
 
 body {
@@ -56,6 +64,18 @@ h4,
 h5,
 h6 {
   font-style: italic;
+}
+
+.border-brand-gradient-primary {
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    inset-inline: -4px;
+    background: var(--brand-border-gradient-primary);
+    z-index: -1;
+    border-radius: inherit;
+  }
 }
 
 @layer utilities {

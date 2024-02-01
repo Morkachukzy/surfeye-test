@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { SectionLayout } from '@/app/layouts/section';
 import { GenericDropdown } from '@/app/components/dropdown';
 import { useState } from 'react';
+import { GenericButton } from '@/app/components/button';
+import { GoogleMapIcon } from '@/app/_assets/icons';
 
 const dropdownOptions = [
   { label: 'Read more', value: '10' },
@@ -17,11 +19,11 @@ const dropdownOptions = [
 export const RecordingAreaSection = () => {
   const [value, setValue] = useState('');
   return (
-    <SectionLayout className="pb-[4.5rem] space-y-10">
-      <div className="flex items-center justify-between">
+    <SectionLayout className="pb-[4.5rem] space-y-3">
+      <div className="flex items-center justify-between brand-big-tablet:pb-4">
         <h2 className="uppercase text-2xl font-bold">Recording area</h2>
       </div>
-      <div className="flex flex-col brand-big-tablet:flex-row items-stretch gap-7">
+      <div className="flex flex-col brand-big-tablet:flex-row items-stretch gap-5 brand-big-tablet:gap-7 pb-2 md:pb-4">
         <div className="relative flex-1 rounded-3xl overflow-hidden w-full md:w-unset aspect-[357/221]">
           <Image
             src="/images/recording-area.png"
@@ -64,6 +66,14 @@ export const RecordingAreaSection = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div className="flex items-center justify-center">
+        <GenericButton
+          variant="primary"
+          rightIcon={<GoogleMapIcon className="w-5 h-5 lg:w-8 lg:h-8" />}
+        >
+          Get directions
+        </GenericButton>
       </div>
     </SectionLayout>
   );

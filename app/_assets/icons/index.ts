@@ -2,6 +2,7 @@ export * from './chevron-down';
 export * from './chevron-left';
 export * from './direction';
 export * from './downloads';
+export * from './google-map';
 export * from './locations';
 export * from './menu';
 export * from './preview';

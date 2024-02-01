@@ -38,7 +38,7 @@ export const GenericButton = forwardRef<HTMLButtonElement, GenericButtonProps>(
       <button
         ref={ref}
         className={cn(
-          'flex items-center gap-3 leading-none uppercase italic font-bold text-xl rounded-full select-none py-3.5 px-[1.875rem] justify-center',
+          'flex items-center gap-3 leading-none uppercase italic font-bold text-brand-md md:text-xl rounded-full select-none py-3.5 px-6 md:px-[1.875rem] justify-center',
           buttonVariants[variant],
           className,
           {

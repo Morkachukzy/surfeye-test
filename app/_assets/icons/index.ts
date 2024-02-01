@@ -8,5 +8,8 @@ export * from './menu';
 export * from './preview';
 export * from './star';
 export * from './surf-wave';
+export * from './swell';
+export * from './tides';
 export * from './user';
 export * from './wave';
+export * from './wind';

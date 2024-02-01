@@ -31,7 +31,7 @@ export const RecordingAreaSection = () => {
           />
         </div>
         <div className="w-full brand-big-tablet:max-w-sm xl:max-w-brand-md">
-          <p className="mb-2 md:mb-4 uppercase font-bold text-brand-md md:text-xl text-left md:text-center">
+          <p className="mb-2 md:mb-4 uppercase font-bold text-brand-md md:text-xl text-left lg:text-center">
             About the recording area
           </p>
           <p className="mb-3 font-normal md:font-medium text-brand-md md:text-lg leading-tight">
@@ -47,7 +47,7 @@ export const RecordingAreaSection = () => {
             options={dropdownOptions}
           />
 
-          <div className="shadow-brand-600 rounded-3xl px-6 py-6 md:px-9 md:py-10 flex items-center gap-8">
+          <div className="shadow-brand-600 rounded-3xl px-6 py-6 lg:px-9 lg:py-10 flex items-center gap-8">
             <div className="flex-1 space-y-4 md:space-y-7">
               <p className="uppercase text-xs md:text-brand-md font-semibold md:font-medium">
                 Find our beach partners

@@ -1,19 +1,11 @@
 import { SectionLayout } from '@/app/layouts/section';
-import {
-  AnalyticCard,
-  AnalyticCardTitle,
-  AnalyticCardValue,
-  AnalyticCardInfoText,
-} from './analytic-card';
-import { StarRating } from '@/app/components/star-rating';
-import { Badge } from '@/app/components/badge';
-import { DirectionIcon, SurfWaveIcon, WaveIcon } from '@/app/_assets/icons';
+import { AnalyticCard, AnalyticCardTitle } from './analytic-card';
 import { analyticsData } from './analytics-data';
 import { cn } from '@/app/_theme/utils';
 
 export const AnalyticsSection = () => {
   return (
-    <SectionLayout>
+    <SectionLayout className="pb-[4.5rem]">
       <div className="flex items-center justify-between">
         <h2 className="uppercase text-3xl font-bold">
           Live surf <span className="text-brand-dark-green">analytics</span>

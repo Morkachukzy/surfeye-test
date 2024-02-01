@@ -57,10 +57,12 @@ const config: Config = {
       },
       maxWidth: {
         'brand-section': 'var(--brand-max-width-section)',
+        'brand-md': 'var(--brand-max-width-md)',
       },
       screens: {
         'brand-min': '24.375rem',
         'brand-big-phone': '28.125rem',
+        'brand-big-tablet': '62rem',
         ...defaultTheme.screens,
       },
     },

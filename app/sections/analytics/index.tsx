@@ -2,6 +2,7 @@ import { SectionLayout } from '@/app/layouts/section';
 import { AnalyticCard, AnalyticCardTitle } from './analytic-card';
 import { analyticsData } from './analytics-data';
 import { cn } from '@/app/_theme/utils';
+import { GenericButton } from '@/app/components/button';
 
 export const AnalyticsSection = () => {
   return (
@@ -10,9 +11,7 @@ export const AnalyticsSection = () => {
         <h2 className="uppercase text-3xl font-bold">
           Live surf <span className="text-brand-dark-green">analytics</span>
         </h2>
-        <button className="flex items-center gap-3 leading-none uppercase italic font-bold text-xl bg-brand-primary text-white rounded-full select-none py-3.5 px-[1.875rem]">
-          90 min
-        </button>
+        <GenericButton>90 min</GenericButton>
       </div>
       <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-4 items-stretch justify-center gap-8 flex-wrap">
         {analyticsData.map((analytic) => (

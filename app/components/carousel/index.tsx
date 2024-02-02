@@ -9,7 +9,7 @@ export const Carousel = ({ children, className }: CarouselProps) => {
   return (
     <div
       className={cn(
-        'flex gap-2 md:gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar',
+        'flex items-stretch gap-2 md:gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar',
         className
       )}
     >

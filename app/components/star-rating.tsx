@@ -12,7 +12,7 @@ type StarRatingProps = {
 
 const sizes = {
   normal: 'w-6 h-6',
-  small: 'w-4 h-4',
+  small: 'w-2.5 md:w-4 h-2.5 md:h-4',
 } as const;
 
 export const StarRating = ({
@@ -21,7 +21,7 @@ export const StarRating = ({
   className,
 }: StarRatingProps) => {
   return (
-    <div className={cn('flex items-center gap-2 ', className)}>
+    <div className={cn('flex items-center gap-2', className)}>
       {[...Array(STAR_LENGTH)].map((_, index) => (
         <StarIcon
           key={index}

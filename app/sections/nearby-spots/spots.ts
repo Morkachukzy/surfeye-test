@@ -19,7 +19,7 @@ export const nearbySpots = [
     windDirection: 'SSE',
     rating: 4,
     imageUrl: '/images/a-nearby-spot.png',
-    isTopSpot: true,
+    isTopSpot: false,
   },
   {
     id: nanoid(),
@@ -29,7 +29,7 @@ export const nearbySpots = [
     windDirection: 'SSE',
     rating: 4,
     imageUrl: '/images/a-nearby-spot.png',
-    isTopSpot: true,
+    isTopSpot: false,
   },
   {
     id: nanoid(),
@@ -39,7 +39,7 @@ export const nearbySpots = [
     windDirection: 'SSE',
     rating: 4,
     imageUrl: '/images/a-nearby-spot.png',
-    isTopSpot: true,
+    isTopSpot: false,
   },
   {
     id: nanoid(),
@@ -49,7 +49,7 @@ export const nearbySpots = [
     windDirection: 'SSE',
     rating: 4,
     imageUrl: '/images/a-nearby-spot.png',
-    isTopSpot: true,
+    isTopSpot: false,
   },
   {
     id: nanoid(),
@@ -59,7 +59,7 @@ export const nearbySpots = [
     windDirection: 'SSE',
     rating: 4,
     imageUrl: '/images/a-nearby-spot.png',
-    isTopSpot: true,
+    isTopSpot: false,
   },
   {
     id: nanoid(),
@@ -69,7 +69,7 @@ export const nearbySpots = [
     windDirection: 'SSE',
     rating: 4,
     imageUrl: '/images/a-nearby-spot.png',
-    isTopSpot: true,
+    isTopSpot: false,
   },
   {
     id: nanoid(),
@@ -79,7 +79,7 @@ export const nearbySpots = [
     windDirection: 'SSE',
     rating: 4,
     imageUrl: '/images/a-nearby-spot.png',
-    isTopSpot: true,
+    isTopSpot: false,
   },
   {
     id: nanoid(),
@@ -89,7 +89,7 @@ export const nearbySpots = [
     windDirection: 'SSE',
     rating: 4,
     imageUrl: '/images/a-nearby-spot.png',
-    isTopSpot: true,
+    isTopSpot: false,
   },
 ] as const;
 

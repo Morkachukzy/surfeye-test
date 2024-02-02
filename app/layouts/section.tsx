@@ -1,7 +1,7 @@
 import { cn } from '@/app/_theme/utils';
 
 type SectionLayoutProps = Readonly<{
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
 }>;
 export const SectionLayout = ({ children, className }: SectionLayoutProps) => {

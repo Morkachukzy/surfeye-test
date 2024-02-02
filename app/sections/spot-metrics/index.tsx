@@ -4,7 +4,7 @@ import { Metric } from './metric';
 
 export const SpotMetricsSection = () => {
   return (
-    <SectionLayout className="space-y-7 md:space-y-10 pb-12 ">
+    <SectionLayout className="space-y-7 md:space-y-10 pb-12">
       <div className="flex items-center justify-between px-5 big-brand-tablet:px-16">
         <h2 className="uppercase text-brand-md md:text-2xl font-bold">
           Ideal spot conditions

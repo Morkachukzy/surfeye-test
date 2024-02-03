@@ -9,7 +9,7 @@ export const LocationPinIcon = (props: IconProps) => (
     fill="none"
     {...props}
   >
-    <path d="M4.63916 8.3125V14.8254" stroke="black" stroke-width="1.4825" />
+    <path d="M4.63916 8.3125V14.8254" stroke="black" strokeWidth="1.4825" />
     <path
       fillRule="evenodd"
       clipRule="evenodd"

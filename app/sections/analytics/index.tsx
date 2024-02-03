@@ -3,6 +3,26 @@ import { AnalyticCard, AnalyticCardTitle } from './analytic-card';
 import { analyticsData } from './analytics-data';
 import { cn } from '@/app/_theme/utils';
 import { GenericButton } from '@/app/components/button';
+import { Tab, TabControls } from '@/app/components/tab';
+
+const tabs = [
+  {
+    id: 1,
+    label: '30min',
+    view: <p>THIS IS THE TAB VIEW</p>,
+  },
+  {
+    id: 2,
+    label: '60min',
+    view: <p>THIS IS THE TAB VIEW</p>,
+  },
+
+  {
+    id: 3,
+    label: '90min',
+    view: <p>THIS IS THE TAB VIEW</p>,
+  },
+];
 
 export const AnalyticsSection = () => {
   return (
@@ -11,7 +31,11 @@ export const AnalyticsSection = () => {
         <h2 className="uppercase text-3xl font-bold">
           Live surf <span className="text-brand-dark-green">analytics</span>
         </h2>
-        <GenericButton>90 min</GenericButton>
+        <div className="">
+          <Tab tabs={tabs}>
+            <TabControls />
+          </Tab>
+        </div>
       </div>
       <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-4 items-stretch justify-center gap-8 flex-wrap">
         {analyticsData.map((analytic) => (

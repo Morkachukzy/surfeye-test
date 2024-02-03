@@ -1,82 +1,145 @@
 'use client';
 
+import {
+  type AriaAttributes,
+  type KeyboardEventHandler,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+  useCallback,
+} from 'react';
+
+import { generateRandomId } from '@/app/_utils/generate-random-id';
 import { cn } from '@/app/_theme/utils';
+
 import { GenericButton } from '../button';
-import { TabProvider, TabType, useTab } from './use-tab';
+import { TabContext, useTab } from './use-tab';
+import { handleTabNavigation } from './utils';
 
-type TabProps = {
-  children: React.ReactNode;
-  tabs: TabType[];
+type TabsProps = {
+  children?: ReactNode;
+  defaultSelectedTab: string;
 };
 
-export const Tab = ({ tabs, children }: TabProps) => {
-  return <TabProvider tabs={tabs}>{children}</TabProvider>;
+export const Tabs = ({ children, defaultSelectedTab }: TabsProps) => {
+  const tabsPrefix = useMemo(() => generateRandomId(4), []);
+
+  const [selectedTab, setSelectedTab] = useState(defaultSelectedTab);
+
+  const selectTab = useCallback((tab: string) => setSelectedTab(tab), []);
+
+  const contextValue = useMemo(
+    () => ({
+      selectedTab,
+      selectTab,
+      tabsPrefix,
+    }),
+    [selectTab, selectedTab, tabsPrefix]
+  );
+
+  return (
+    <TabContext.Provider value={contextValue}>
+      <div className="">{children}</div>
+    </TabContext.Provider>
+  );
 };
 
-type TabControlsProps = {
+type TabTriggersProps = {
+  children: ReactNode;
+  'aria-label': AriaAttributes['aria-label'];
   className?: string;
 };
 
-const tabStyles = {
-  normal:
-    'bg-transparent text-brand-primary text-opacity-50 py-0 px-[18px] md:px-[18px] rounded-none  [&:not(&:first-child)]:border-l border-brand-primary  peer-[]/active:border-r-0',
-  active:
-    'bg-brand-primary text-brand-light text-opacity-100 shadow-brand-100 py-3 px-[18px] md:px-[18px] peer/active rounded-3xl',
-} as const;
-export const TabControls = ({ className }: TabControlsProps) => {
-  const { tabs, activeTab, setTab } = useTab();
+export const TabTriggers = ({
+  children,
+  'aria-label': ariaLabel,
+  className,
+}: TabTriggersProps) => {
+  const tabTriggerRef = useRef<HTMLDivElement | null>(null);
 
-  const handleSelectTab = (tab: TabType) => {
-    setTab(tab);
-  };
+  const tabSelector = useRef('[role="tab"]:not([disabled])');
 
-  const isActive = (id: number) => {
-    return activeTab.id === id;
-  };
+  const handleKeyDown: KeyboardEventHandler<HTMLDivElement> = useCallback(
+    (event) => {
+      const triggerList = tabTriggerRef.current;
+
+      if (!triggerList) return;
+
+      const tabs = Array.from<HTMLElement>(
+        document.querySelectorAll(tabSelector.current)
+      );
+
+      handleTabNavigation(event.key, tabs);
+    },
+    []
+  );
+
   return (
     <div
-      className={cn(
-        'flex items-center border-[1.5px] bg-brand-light rounded-full border-brand-primary ',
-        className
-      )}
+      ref={tabTriggerRef}
+      role="tab-triggers"
+      aria-label={ariaLabel}
+      onKeyDown={handleKeyDown}
+      className={cn(className)}
     >
-      {tabs.map((tab, index) => (
-        <GenericButton
-          key={index}
-          onClick={() => handleSelectTab(tab)}
-          className={cn(
-            `text-brand-md md:text-brand-md xl:text-brand-md leading-none ${tabStyles.normal}`,
-            {
-              [tabStyles.active]: isActive(tab.id),
-              'border-r-0 ': isActive(tab.id - 1) || isActive(tab.id + 1),
-              'border-l-0 ': isActive(tab.id - 1) || isActive(tab.id + 1),
-            }
-          )}
-          small
-        >
-          {tab.label}
-        </GenericButton>
-      ))}
+      {children}
     </div>
   );
 };
 
-const tabs = [
-  {
-    label: <>Today</>,
-    view: <p>THIS IS THE TAB VIEW</p>,
-  },
-];
+type TabProps = {
+  children: ReactNode;
+  tab: string;
+  className?: string;
+};
 
-/*
- * <Tab>
- *   <TabControl></TabControl>
- *   <TabView></TabView>
- * </Tab>
- * * + * {
- *  border: none
- * }
- *
- *
- *
- */
+export const Tab = ({ children, tab, className }: TabProps) => {
+  const { selectedTab, selectTab, tabsPrefix } = useTab();
+
+  const isSelectedTab = useMemo(() => selectedTab === tab, [selectedTab, tab]);
+
+  const tabIndex = useMemo(() => {
+    return isSelectedTab ? 0 : -1;
+  }, [isSelectedTab]);
+  return (
+    <GenericButton
+      role="tab"
+      aria-selected={isSelectedTab}
+      aria-controls={`tab-${tabsPrefix}-tabpanel-${tab}`}
+      onClick={() => selectTab(tab)}
+      tabIndex={tabIndex}
+      className={cn(className)}
+    >
+      {children}
+    </GenericButton>
+  );
+};
+
+type TabPanelProps = {
+  children: ReactNode;
+  tab: string;
+  className?: string;
+};
+
+export const TabPanel = ({ children, tab, className }: TabPanelProps) => {
+  const { selectedTab, tabsPrefix } = useTab();
+
+  if (selectedTab !== tab) return null;
+  return (
+    <div
+      role="tab-panel"
+      tabIndex={0}
+      id={`tab-${tabsPrefix}-tabpanel-${tab}`}
+      className={cn(className)}
+    >
+      {children}
+    </div>
+  );
+};
+
+Tabs.Triggers = TabTriggers;
+Tabs.Tab = Tab;
+Tabs.Panel = TabPanel;
+
+export default Tabs;

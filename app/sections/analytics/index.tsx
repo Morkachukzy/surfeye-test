@@ -27,8 +27,8 @@ const tabs = [
 export const AnalyticsSection = () => {
   return (
     <SectionLayout className="pb-4 md:pb-10 lg:pb-[4.25rem] px-5">
-      <div className="flex flex-wrap items-center justify-between mb-[1.625rem]">
-        <h2 className="uppercase text-3xl font-bold">
+      <div className="flex  items-center gap-1.5 justify-between mb-[1.625rem]">
+        <h2 className="uppercase leading-tight text-xl md:text-2xl lg:text-3xl font-bold">
           Live surf <span className="text-brand-dark-green">analytics</span>
         </h2>
         <div className="">

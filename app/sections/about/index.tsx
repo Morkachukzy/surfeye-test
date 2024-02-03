@@ -5,7 +5,7 @@ export const AboutSection = () => {
   return (
     <SectionLayout className="pb-14 space-y-2 md:space-y-3.5 lg:space-y-3.5 px-7 md:px-7">
       <div className="">
-        <h2 className="uppercase text-brand-md md:text-2xl font-bold">
+        <h2 className="uppercase text-xl md:text-2xl font-bold">
           About Nova Praia
         </h2>
       </div>

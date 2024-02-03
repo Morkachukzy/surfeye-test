@@ -13,7 +13,6 @@ export default function Home() {
     <main className="font-exo text-brand-primary">
       <Navbar />
       <HeroSection />
-      <FeaturesSection />
       <AnalyticsSection />
       <RecordingAreaSection />
       <NearbySpotsSection />

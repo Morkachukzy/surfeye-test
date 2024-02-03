@@ -15,7 +15,7 @@ type NearbySpotCardProps = {
 export const NearbySpotCard = ({ className, spot }: NearbySpotCardProps) => {
   return (
     <div className={cn('', className)}>
-      <div className="relative w-[10.44rem] md:w-[18.56rem]  aspect-[167/109] md:aspect-[298/177] rounded-xl md:rounded-3xl mb-1.5 overflow-hidden">
+      <div className="relative w-[10.44rem] md:w-[18.56rem] brand-max:w-[30rem] aspect-[167/109] md:aspect-[298/177] rounded-xl md:rounded-3xl mb-1.5 overflow-hidden">
         <Image
           src={spot.imageUrl}
           alt={spot.name}

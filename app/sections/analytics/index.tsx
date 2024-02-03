@@ -26,14 +26,14 @@ const tabs = [
 
 export const AnalyticsSection = () => {
   return (
-    <SectionLayout className="pb-[4.5rem]">
-      <div className="flex items-center justify-between">
+    <SectionLayout className="pb-4 md:pb-10 lg:pb-[4.25rem] px-5">
+      <div className="flex flex-wrap items-center justify-between mb-[1.625rem]">
         <h2 className="uppercase text-3xl font-bold">
           Live surf <span className="text-brand-dark-green">analytics</span>
         </h2>
         <div className="">
           <Tab tabs={tabs}>
-            <TabControls />
+            <TabControls className="" />
           </Tab>
         </div>
       </div>

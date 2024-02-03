@@ -65,6 +65,7 @@ const config: Config = {
         'brand-min': '24.375rem',
         'brand-big-phone': '28.125rem',
         'brand-big-tablet': '62rem',
+        'brand-max': '95rem',
         ...defaultTheme.screens,
       },
     },

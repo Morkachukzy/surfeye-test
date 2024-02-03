@@ -8,16 +8,11 @@ import { Badge } from '@/app/components/badge';
 import { Compass } from '@/app/components/compass';
 
 type NearbySpotCardProps = {
-  children?: React.ReactNode;
   className?: string;
   spot: NearbySpot;
 };
 
-export const NearbySpotCard = ({
-  children,
-  className,
-  spot,
-}: NearbySpotCardProps) => {
+export const NearbySpotCard = ({ className, spot }: NearbySpotCardProps) => {
   return (
     <div className={cn('', className)}>
       <div className="relative w-[10.44rem] md:w-[18.56rem]  aspect-[167/109] md:aspect-[298/177] rounded-xl md:rounded-3xl mb-1.5 overflow-hidden">
@@ -41,7 +36,7 @@ export const NearbySpotCard = ({
       <div className="">
         <p className="text-brand-md md:text-xl font-bold flex items-center gap-1">
           <LocationPinIcon />
-          {spot.name}
+          <span className="">{spot.name}</span>
         </p>
         <div className="flex items-start gap-4">
           <SpotMetrics
@@ -52,7 +47,7 @@ export const NearbySpotCard = ({
           <SpotMetrics
             value={spot.windSpeed}
             unit="mph"
-            icon={<Compass direction="SSE" />}
+            icon={<Compass direction={spot.windDirection} />}
             className="leading-none items-start"
           />
         </div>

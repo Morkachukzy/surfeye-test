@@ -34,15 +34,15 @@ export const NearbySpotCard = ({ className, spot }: NearbySpotCardProps) => {
         ) : null}
       </div>
       <div className="">
-        <p className="text-brand-md md:text-xl font-bold flex items-center gap-1">
-          <LocationPinIcon />
+        <p className="text-brand-md md:text-xl brand-max:text-3xl font-bold flex items-center gap-1 brand-max:gap-2 brand-max:mb-2">
+          <LocationPinIcon className="w-2 brand-max:w-4" />
           <span className="">{spot.name}</span>
         </p>
-        <div className="flex items-start gap-4">
+        <div className="flex items-start gap-2 md:gap-4 brand-max:gap-8">
           <SpotMetrics
             value={spot.waveHeight}
             unit="m"
-            icon={<WaveHeightIcon />}
+            icon={<WaveHeightIcon className="w-4 md:w-6 h-4 md:h-6" />}
           />
           <SpotMetrics
             value={spot.windSpeed}
@@ -71,9 +71,13 @@ const SpotMetrics = ({
   return (
     <div className={cn('flex items-center opacity-45 gap-1 ', className)}>
       {Icon}
-      <span className="space-x-1 ">
-        <span className="text-md font-bold">{value}</span>
-        <span className="lowercase text-xs font-normal">{unit}</span>
+      <span className="space-x-1">
+        <span className="text-xs md:text-brand-md brand-max:text-2xl font-bold">
+          {value}
+        </span>
+        <span className="lowercase text-xs brand-max:text-2xl font-normal">
+          {unit}
+        </span>
       </span>
     </div>
   );

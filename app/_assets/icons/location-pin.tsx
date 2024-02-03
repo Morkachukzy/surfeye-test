@@ -3,8 +3,6 @@ import { Icon, type IconProps } from './core';
 export const LocationPinIcon = (props: IconProps) => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
-    width="9"
-    height="15"
     viewBox="0 0 9 15"
     fill="none"
     {...props}

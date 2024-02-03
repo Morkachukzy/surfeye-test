@@ -37,13 +37,15 @@ export const Compass = ({
   return (
     <span className={cn('flex flex-col gap-0.5', className)}>
       <CompassIcon
-        className="transition-all "
+        className="transition-all brand-max:w-6 brand-max:h-6"
         style={{
           transform: `rotate(${angle}deg)`,
         }}
       />
       {!hideLabel ? (
-        <span className="text-xs font-bold leading-none ">{direction}</span>
+        <span className="text-xs font-bold leading-none brand-max:text-xl">
+          {direction}
+        </span>
       ) : null}
     </span>
   );

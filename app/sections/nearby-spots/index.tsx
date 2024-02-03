@@ -2,6 +2,8 @@ import { Carousel, CarouselItem } from '@/app/components/carousel';
 import { SectionLayout } from '@/app/layouts/section';
 import { NearbySpotCard } from './spot-card';
 import { nearbySpots } from './spots';
+import { ChevronLeftIcon } from '@/app/_assets/icons';
+import Link from 'next/link';
 
 export const NearbySpotsSection = () => {
   return (
@@ -10,6 +12,13 @@ export const NearbySpotsSection = () => {
         <h2 className="uppercase text-xl md:text-2xl font-bold">
           Nearby spots
         </h2>
+        <Link
+          href="#"
+          className="text-xs font-bold flex items-center gap-0.5 md:gap-2"
+        >
+          <span className="leading-none">Check more</span>
+          <ChevronLeftIcon className="rotate-180 w-3" />
+        </Link>
       </div>
 
       <div className="">

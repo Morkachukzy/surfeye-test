@@ -26,6 +26,8 @@ const config: Config = {
           'dark-green': withOpacity('--brand-dark-green'),
           yellow: withOpacity('--brand-yellow'),
           red: withOpacity('--brand-red'),
+          'red-2': withOpacity('--brand-red-2'),
+          grey: withOpacity('--brand-grey'),
         },
       },
       fontFamily: {
@@ -64,6 +66,7 @@ const config: Config = {
       screens: {
         'brand-min': '24.375rem',
         'brand-big-phone': '28.125rem',
+        'brand-spotlight': '60rem',
         'brand-big-tablet': '62rem',
         'brand-max': '95rem',
         ...defaultTheme.screens,

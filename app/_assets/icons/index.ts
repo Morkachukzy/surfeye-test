@@ -1,5 +1,6 @@
 export * from './chevron-down';
 export * from './chevron-left';
+export * from './compass';
 export * from './direction';
 export * from './downloads';
 export * from './google-map';

@@ -5,6 +5,7 @@ import type { NearbySpot } from './spots';
 import { StarRating } from '@/app/components/star-rating';
 import { LocationPinIcon, WaveHeightIcon } from '@/app/_assets/icons';
 import { Badge } from '@/app/components/badge';
+import { Compass } from '@/app/components/compass';
 
 type NearbySpotCardProps = {
   children?: React.ReactNode;
@@ -51,7 +52,8 @@ export const NearbySpotCard = ({
           <SpotMetrics
             value={spot.windSpeed}
             unit="mph"
-            icon={<WaveHeightIcon />}
+            icon={<Compass direction="SSE" />}
+            className="leading-none items-start"
           />
         </div>
       </div>
@@ -63,12 +65,18 @@ type SpotMetricsProps = {
   icon: JSX.Element;
   value: string;
   unit: string;
+  className?: string;
 };
-const SpotMetrics = ({ icon: Icon, value, unit }: SpotMetricsProps) => {
+const SpotMetrics = ({
+  icon: Icon,
+  value,
+  unit,
+  className,
+}: SpotMetricsProps) => {
   return (
-    <div className="flex items-center opacity-45 gap-1">
+    <div className={cn('flex items-center opacity-45 gap-1 ', className)}>
       {Icon}
-      <span className="space-x-1">
+      <span className="space-x-1 ">
         <span className="text-md font-bold">{value}</span>
         <span className="lowercase text-xs font-normal">{unit}</span>
       </span>

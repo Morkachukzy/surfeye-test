@@ -109,7 +109,8 @@ export const Tab = ({ children, tab, className }: TabProps) => {
       aria-controls={`tab-${tabsPrefix}-tabpanel-${tab}`}
       onClick={() => selectTab(tab)}
       tabIndex={tabIndex}
-      className={cn(className)}
+      className={cn({"active-tab": isSelectedTab}, className)}
+      small
     >
       {children}
     </GenericButton>
@@ -138,8 +139,8 @@ export const TabPanel = ({ children, tab, className }: TabPanelProps) => {
   );
 };
 
-Tabs.Triggers = TabTriggers;
-Tabs.Tab = Tab;
-Tabs.Panel = TabPanel;
+// Tabs.Triggers = TabTriggers;
+// Tabs.Tab = Tab;
+// Tabs.Panel = TabPanel;
 
-export default Tabs;
+// export default Tabs;

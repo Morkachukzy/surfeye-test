@@ -1,6 +1,6 @@
 import { cn } from '@/app/_theme/utils';
 
-type BadgeProps = Readonly<{
+export type BadgeProps = Readonly<{
   children?: React.ReactNode;
   className?: string;
 }>;

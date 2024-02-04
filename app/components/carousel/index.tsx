@@ -1,24 +1,29 @@
 import { cn } from '@/app/_theme/utils';
+import { forwardRef } from 'react';
 
 type CarouselProps = {
   children?: React.ReactNode;
   className?: string;
 };
 
-export const Carousel = ({ children, className }: CarouselProps) => {
-  return (
-    <div className="overflow-x-scroll no-scrollbar">
-      <div
-        className={cn(
-          'flex items-stretch gap-2 md:gap-5 overflow-x-visible mx-auto snap-x snap-mandatory no-scrollbar',
-          className
-        )}
-      >
-        {children}
+export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
+  ({ children, className }, ref) => {
+    return (
+      <div className="overflow-x-scroll no-scrollbar" ref={ref}>
+        <div
+          className={cn(
+            'flex items-stretch gap-2 md:gap-5 overflow-x-visible mx-auto snap-x snap-mandatory no-scrollbar',
+            className
+          )}
+        >
+          {children}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+);
+
+Carousel.displayName = 'Carousel';
 
 type CarouselItemProps = {
   children?: React.ReactNode;

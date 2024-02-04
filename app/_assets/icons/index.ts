@@ -9,6 +9,7 @@ export * from './instagram';
 export * from './locations';
 export * from './location-pin';
 export * from './menu';
+export * from './play';
 export * from './preview';
 export * from './star';
 export * from './surf-wave';

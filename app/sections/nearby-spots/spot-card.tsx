@@ -25,7 +25,7 @@ export const NearbySpotCard = ({ className, spot }: NearbySpotCardProps) => {
         <StarRating
           size="small"
           level={spot.rating}
-          className="absolute z-10 top-2.5 md:top-5 right-4 md:right-6"
+          className="absolute z-10 top-2.5 md:top-5 right-4 md:right-6 [&>.empty]:fill-brand-grey"
         />
         {spot.isTopSpot ? (
           <Badge className="absolute bottom-2 md:bottom-[1.375rem] left-2.5 md:left-5 bg-brand-primary leading-none text-xs md:text-[.625rem] font-semibold text-white py-1.5 md:py-2 px-3 md:px-5 border md:border-2 border-white">

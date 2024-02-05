@@ -7,7 +7,7 @@ import { LiveBadge } from '@/app/components/badge/live';
 export const LiveVideos = () => {
   const [video, setVideo] = useState<WaveVideo | null>(null);
   return (
-    <div className="xl:px-4">
+    <div className="xl:px-4 pb-7 md:pb-9">
       <VideoPreview />
       <VideoPreviewFinder selectedVideo={video} setSelectedVideo={setVideo} />
     </div>

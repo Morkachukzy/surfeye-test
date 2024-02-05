@@ -24,7 +24,7 @@ export const analyticsData = [
               seconds
             </span>
           </AnalyticCardValue>
-          <Badge className="bg-brand-green text-white">Good</Badge>
+          <Badge className="bg-brand-lemon-green text-white">Good</Badge>
         </div>
         <AnalyticCardInfoText>
           <WaveIcon className="w-3 h-3" />

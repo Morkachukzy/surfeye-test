@@ -26,7 +26,8 @@ export const StarRating = ({
         <StarIcon
           key={index}
           className={cn(sizes[size], {
-            'fill-brand-yellow': index < level,
+            'fill-brand-yellow filled': index < level,
+            'empty': index >= level,
           })}
         />
       ))}

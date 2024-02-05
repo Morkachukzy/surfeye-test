@@ -8,6 +8,14 @@ type ForecastTableProps = {
   dataSet: ForecastData[];
 };
 
+const colors: Record<string, string> = {
+  Today: 'bg-brand-green text-brand-light',
+  Tmrw: 'bg-brand-orange text-brand-light',
+  Fri: 'bg-brand-lemon-green text-brand-light',
+  Sat: 'bg-brand-lemon-green text-brand-light',
+  Sun: 'bg-brand-red-3 text-brand-light',
+};
+
 const tableHeaders = ['Surf(m)', 'Swell', 'Wind'];
 
 export const ForecastTable = ({ dataSet }: ForecastTableProps) => {
@@ -28,7 +36,9 @@ export const ForecastTable = ({ dataSet }: ForecastTableProps) => {
           {dataSet.map((data) => (
             <div key={data.label} className="flex items-center justify-between">
               <div className="basis-1/3 flex items-center justify-center relative">
-                <Badge className="absolute left-0 -translate-x-3 md:-translate-x-6 -rotate-90 w-[57px] md:w-[87px] px-[18px] py-0.5 bg-brand-lemon-green">
+                <Badge
+                  className={`absolute left-0 -translate-x-3 md:-translate-x-6 -rotate-90 w-[57px] md:w-[87px] px-[18px] py-0.5 bg-brand-lemon-green ${[colors[data.label]]}`}
+                >
                   {data.label}
                 </Badge>
                 <ForecastSurfHeightMetrics surfHeight={data.surfHeight} />

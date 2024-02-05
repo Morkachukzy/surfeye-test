@@ -20,4 +20,6 @@ export const createIntersectionObserver = ({
   }, options);
 
   observerCallback?.(observer);
+
+  return observer;
 };

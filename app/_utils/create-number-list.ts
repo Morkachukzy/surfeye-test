@@ -5,5 +5,14 @@ export const createNumberList = (
 ) => {
   const length = Math.floor((end - start) / increment) + 1;
 
-  return Array.from({ length }, (_, i) => start + i * increment);
+  const decimalSegment = increment.toString().split('.')[1];
+  let precision = 0;
+  if (decimalSegment) {
+    precision = decimalSegment.length;
+  }
+
+  return Array.from({ length }, (_, i) => {
+    const digit = start + i * increment;
+    return Number(digit.toFixed(precision));
+  });
 };

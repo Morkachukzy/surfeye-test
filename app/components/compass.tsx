@@ -20,7 +20,7 @@ const compassDirections = [
   'NNW',
 ] as const;
 
-type CompassDirection = (typeof compassDirections)[number];
+export type CompassDirection = (typeof compassDirections)[number];
 
 type CompassProps = {
   direction?: CompassDirection;

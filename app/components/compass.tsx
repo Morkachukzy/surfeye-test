@@ -26,24 +26,33 @@ type CompassProps = {
   direction?: CompassDirection;
   hideLabel?: boolean;
   className?: string;
+  textClass?: string;
+  iconClass?: string;
 };
 
 export const Compass = ({
   direction = 'N',
   hideLabel,
   className,
+  textClass,
+  iconClass,
 }: CompassProps) => {
   const angle = getDirectionAngle(direction, compassDirections);
   return (
-    <span className={cn('flex flex-col gap-0.5', className)}>
+    <span className={cn('flex flex-col items-center gap-0.5', className)}>
       <CompassIcon
-        className="transition-all brand-max:w-6 brand-max:h-6"
+        className={cn('transition-all brand-max:w-6 brand-max:h-6', iconClass)}
         style={{
           transform: `rotate(${angle}deg)`,
         }}
       />
       {!hideLabel ? (
-        <span className="text-xs font-bold leading-none brand-max:text-xl">
+        <span
+          className={cn(
+            'text-xs font-bold leading-none brand-max:text-xl',
+            textClass
+          )}
+        >
           {direction}
         </span>
       ) : null}

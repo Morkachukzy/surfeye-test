@@ -49,12 +49,14 @@ const config: Config = {
         'brand-800': 'var(--brand-shadow-800)',
         'brand-900': 'var(--brand-shadow-900)',
         'brand-1000': 'var(--brand-shadow-1000)',
+        'brand-1100': 'var(--brand-shadow-1100)',
       },
       borderRadius: {
         'brand-100': 'var(--brand-radius-100)',
         'brand-200': 'var(--brand-radius-200)',
         'brand-300': 'var(--brand-radius-300)',
         'brand-400': 'var(--brand-radius-400)',
+        'brand-600': 'var(--brand-radius-600)',
       },
       width: {
         'brand-fit': 'var(--brand-width-fit)',

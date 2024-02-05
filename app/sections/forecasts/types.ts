@@ -4,7 +4,7 @@ export type ForecastData = {
   label: string;
   surfHeight: string;
   swell: {
-    time: string;
+    time: number;
     direction: CompassDirection;
   };
   wind: {

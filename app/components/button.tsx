@@ -40,12 +40,12 @@ export const GenericButton = forwardRef<HTMLButtonElement, GenericButtonProps>(
         className={cn(
           'flex flex-shrink-0 items-center gap-3 leading-none uppercase italic font-bold text-brand-md md:text-xl rounded-full select-none py-3 px-6 md:px-[1.875rem] justify-center',
           buttonVariants[variant],
-          className,
           {
             'w-full': wide,
             'text-md': small,
             'text-lg': !small,
-          }
+          },
+          className
         )}
         {...otherButtonProps}
       >

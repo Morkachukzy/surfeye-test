@@ -1,8 +1,8 @@
 import { SectionLayout } from '@/app/layouts/section';
 import { forecastDataSet } from './mocks/forecasts';
 import { Tab, TabPanel, TabTriggers, Tabs } from '@/app/components/tab';
-import { ForecastTable } from './forecast-table';
-import { ForecastChart } from './forecast-chart';
+import { ForecastTable } from './table';
+import { ForecastChart } from './chart';
 
 const tabs = [
   {
@@ -24,19 +24,21 @@ const tabs = [
 
 export const ForecastsSection = () => {
   return (
-    <SectionLayout className="px-5">
-      <Tabs defaultSelectedTab="today">
-        <div className="flex items-center justify-between brand-big-tablet:pb-4">
-          <h2 className="uppercase text-xl md:text-2xl font-bold">Forecasts</h2>
+    <SectionLayout className="px-5 pb-11">
+      <Tabs defaultSelectedTab="one-week">
+        <div className="flex  items-center justify-between brand-big-tablet:pb-4 gap-2">
+          <h2 className="uppercase text-lg md:text-xl lg:text-2xl font-bold">
+            Forecasts
+          </h2>
           <TabTriggers
             aria-label="forecast-data-vis"
-            className="flex items-center bg-brand-light border border-brand-primary rounded-full w-brand-fit gap:0.5 md:gap-1.5"
+            className="flex flex-shrink-0 items-center bg-brand-light border border-brand-primary rounded-full w-brand-fit gap:0.5 md:gap-1.5"
           >
             {tabs.map((tab) => (
               <Tab
                 key={tab.id}
                 tab={tab.id}
-                className="text-brand-primary py-2 px-6 md:py-2 md:px-8 text-opacity-50 bg-brand-light [&.active-tab]:bg-brand-primary [&.active-tab]:text-brand-light"
+                className="text-sm text-brand-primary py-2 px-2.5 md:px-6 md:py-2 lg:px-8 text-opacity-50 font-bold  bg-transparent [&.active-tab]:bg-brand-primary [&.active-tab]:text-brand-light [&.active-tab]:shadow-brand-1100"
               >
                 {tab.label}
               </Tab>

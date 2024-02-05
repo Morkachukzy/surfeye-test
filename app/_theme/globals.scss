@@ -30,14 +30,17 @@ main,
   --brand-shadow-500: 0px 4.7px 4.7px 0px rgba(0, 0, 0, 0.05);
   --brand-shadow-600: 0px 6px 6px 0px rgba(0, 0, 0, 0.05);
   --brand-shadow-700: 0px 8px 28px 0px rgba(0, 0, 0, 0.1);
-  --brand-shadow-800: 0px 11px 39px 0px rgba(0, 0, 0, 0.1);
+  --brand-shadow-800: 0px 11px 38px 0px rgba(0, 0, 0, 0.1);
   --brand-shadow-900: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
   --brand-shadow-1000: 0px -9px 59px 0px rgba(0, 0, 0, 0.25);
+  --brand-shadow-1100: 3px 1.7px 6.2px 0px rgba(0, 0, 0, 0.25);
 
   --brand-radius-100: 23px;
   --brand-radius-200: 38px;
   --brand-radius-300: 48px;
   --brand-radius-400: 50px;
+  --brand-radius-500: 60px;
+  --brand-radius-600: 64px;
 
   --brand-font-size-md: 1rem;
   --brand-font-size-2xl: 2.125rem;
@@ -100,6 +103,14 @@ h6 {
       background: var(--brand-border-gradient-primary-desktop);
     }
   }
+}
+
+.writing-v-rl {
+  writing-mode: vertical-rl;
+}
+
+.writing-v-lr {
+  writing-mode: vertical-lr;
 }
 
 @layer utilities {

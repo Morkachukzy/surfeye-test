@@ -29,7 +29,7 @@ export const GenericDropdown = ({
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   useOnClickOutside(dropdownRef, () => {
-    console.log('click outside');
+    // console.log('click outside');
     close();
   });
 

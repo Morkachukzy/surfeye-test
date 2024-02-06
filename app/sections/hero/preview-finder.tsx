@@ -76,7 +76,6 @@ export const VideoPreviewFinder = ({
   //     observer.observe(activeVideoEl);
   //   },
   // });
-  console.log('carouselRef:', carouselRef);
 
   return (
     <div className="">

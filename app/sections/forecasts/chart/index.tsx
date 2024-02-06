@@ -4,7 +4,7 @@ import './chart.scss';
 
 import { ForecastDayData } from '../types';
 
-import { VictoryArea, VictoryLabel } from 'victory';
+import { VictoryArea, VictoryContainer, VictoryLabel } from 'victory';
 import { SunriseIcon, SunsetIcon } from '@/app/_assets/icons';
 import { getLabels } from './utils';
 import { areaChartStyles, labelStyles } from './styles';
@@ -15,9 +15,13 @@ type ForecastChartProps = {
 };
 
 export const ForecastChart = ({ tides }: ForecastChartProps) => {
+  const sortedTides = tides.sort(
+    (prevTide, nextTide) => prevTide.swellTime - nextTide.swellTime
+  );
+
   return (
-    <div>
-      <div className="w-[609px] h-[160px] rounded-brand-200  flex items-end  relative ">
+    <div className="px-2">
+      <div className="brand-min-desktop:max-w-[609px] w-full h-full flex-1 aspect-[335/101] md:aspect-[609/159] rounded-brand-200  flex  items-end  relative ">
         <ForecastChartSegment
           className="absolute left-0 w-1/4 h-full rounded-l-3xl bg-black bg-opacity-10"
           label={
@@ -44,7 +48,7 @@ export const ForecastChart = ({ tides }: ForecastChartProps) => {
         />
         <div className="h-full w-full absolute inset-0 z-50">
           <VictoryArea
-            data={tides}
+            data={sortedTides}
             maxDomain={{
               y: 4,
             }}
@@ -59,10 +63,13 @@ export const ForecastChart = ({ tides }: ForecastChartProps) => {
             x="swellTime"
             y="surfDistance"
             interpolation="natural"
-            width={605}
             padding={0}
+            width={609}
             height={159}
             style={areaChartStyles}
+            containerComponent={
+              <VictoryContainer preserveAspectRatio="none" responsive={true} />
+            }
           />
         </div>
       </div>

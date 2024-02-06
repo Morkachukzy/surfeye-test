@@ -75,6 +75,14 @@ export const todayForecastDataSet: ForecastDayData = {
   },
   tides: [
     {
+      swellTime: 450,
+      surfDistance: 1.8,
+    },
+    {
+      swellTime: 550,
+      surfDistance: 1.4,
+    },
+    {
       swellTime: 0,
       surfDistance: 1.5,
     },
@@ -89,14 +97,6 @@ export const todayForecastDataSet: ForecastDayData = {
     {
       swellTime: 340,
       surfDistance: 1.2,
-    },
-    {
-      swellTime: 450,
-      surfDistance: 1.8,
-    },
-    {
-      swellTime: 550,
-      surfDistance: 1.4,
     },
   ],
 };

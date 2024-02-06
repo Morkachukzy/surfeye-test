@@ -20,7 +20,7 @@ const tableHeaders = ['Surf(m)', 'Swell', 'Wind'];
 
 export const ForecastTable = ({ dataSet }: ForecastTableProps) => {
   return (
-    <div className="rounded-3xl md:rounded-brand-600 shadow-brand-800 mx-auto max-w-[62.5rem] pt-7 md:pt-8 px-6 pb-7 md:pb-10 flex justify-center">
+    <div className="bg-white rounded-3xl md:rounded-brand-600 shadow-brand-800 mx-auto max-w-[62.5rem] pt-7 md:pt-8 px-6 pb-7 md:pb-10 flex justify-center">
       <div className="max-w-[50rem] w-full">
         <div className="flex items-center justify-between border-b border-brand-primary border-opacity-20 mx-7 md:mx-14">
           {tableHeaders.map((header) => (

@@ -4,20 +4,24 @@ import { forwardRef } from 'react';
 type CarouselProps = {
   children?: React.ReactNode;
   className?: string;
+  showControls?: boolean;
 };
 
 export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
-  ({ children, className }, ref) => {
+  ({ children, className, showControls }, ref) => {
     return (
-      <div className="overflow-x-scroll no-scrollbar" ref={ref}>
-        <div
-          className={cn(
-            'flex items-stretch gap-2 md:gap-5 overflow-x-visible mx-auto snap-x snap-mandatory no-scrollbar',
-            className
-          )}
-        >
-          {children}
+      <div className="">
+        <div className="overflow-x-scroll no-scrollbar" ref={ref}>
+          <div
+            className={cn(
+              'flex items-stretch gap-2 md:gap-5 overflow-x-visible mx-auto snap-x snap-mandatory no-scrollbar',
+              className
+            )}
+          >
+            {children}
+          </div>
         </div>
+        <CarouselControl />
       </div>
     );
   }
@@ -38,4 +42,8 @@ export const CarouselItem = ({ children, className }: CarouselItemProps) => {
       {children}
     </div>
   );
+};
+
+export const CarouselControl = () => {
+  return <div className="">This is a control</div>;
 };

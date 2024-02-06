@@ -12,6 +12,7 @@ import {
 import { Tab, TabPanel, TabTriggers, Tabs } from '@/app/components/tab';
 import { ForecastTable } from './table';
 import { ForecastDay } from './day';
+import { cn } from '@/app/_theme/utils';
 
 const tabs = [
   {
@@ -37,14 +38,17 @@ export const ForecastsSection = () => {
             Forecasts
           </h2>
           <TabTriggers
-            aria-label="forecast-data-vis"
-            className="flex flex-shrink-0 items-center bg-brand-light border border-brand-primary rounded-full w-brand-fit gap:0.5 md:gap-1.5"
+            aria-label="analytics-data-vis"
+            className="flex flex-shrink-0 items-center md:px-2 bg-brand-light border border-brand-primary rounded-full w-brand-fit gap:0.5 md:gap-1.5"
           >
             {tabs.map((tab) => (
               <Tab
                 key={tab.id}
                 tab={tab.id}
-                className="text-sm text-brand-primary py-2 px-2.5 md:px-6 md:py-2 lg:px-8 text-opacity-50 font-bold  bg-transparent [&.active-tab]:bg-brand-primary [&.active-tab]:text-brand-light [&.active-tab]:shadow-brand-1100"
+                className={cn(
+                  'text-xs md:text-[1rem] [&:not(&:first-child)]:border-l py-0 rounded-none border-brand-primary text-brand-primary px-2.5 md:px-3 lg:px-3 text-opacity-50 font-bold  bg-transparent ',
+                  '[&.active-tab]:rounded-full [&.active-tab]:-mx-1 [&.active-tab]:md:-mx-3 [&.active-tab]:py-2  [&.active-tab]:md:py-3 [&.active-tab]:bg-brand-primary [&.active-tab]:text-brand-light [&.active-tab]:shadow-brand-1100 [&.active-tab]:px-4'
+                )}
               >
                 {tab.label}
               </Tab>

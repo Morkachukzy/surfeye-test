@@ -6,23 +6,20 @@ import {
 } from './mocks/forecasts';
 import { Tab, TabPanel, TabTriggers, Tabs } from '@/app/components/tab';
 import { ForecastTable } from './table';
-import { ForecastChart } from './chart';
+import { ForecastDay } from './day';
 
 const tabs = [
   {
     id: 'today',
     label: 'Today',
-    render: ForecastChart,
   },
   {
     id: 'tomorrow',
     label: 'Tomorrow',
-    render: ForecastChart,
   },
   {
     id: 'one-week',
     label: 'One week',
-    render: ForecastTable,
   },
 ];
 
@@ -52,10 +49,10 @@ export const ForecastsSection = () => {
 
         <div className="">
           <TabPanel tab="today">
-            <ForecastChart dataSet={todayForecastDataSet} />
+            <ForecastDay dataSet={todayForecastDataSet} />
           </TabPanel>
           <TabPanel tab="tomorrow">
-            <ForecastChart dataSet={tomorrowForecastDataSet} />
+            <ForecastDay dataSet={tomorrowForecastDataSet} />
           </TabPanel>
           <TabPanel tab="one-week">
             <ForecastTable dataSet={forecastDataSet} />

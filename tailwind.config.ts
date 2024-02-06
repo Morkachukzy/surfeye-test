@@ -58,7 +58,9 @@ const config: Config = {
         'brand-200': 'var(--brand-radius-200)',
         'brand-300': 'var(--brand-radius-300)',
         'brand-400': 'var(--brand-radius-400)',
+        'brand-500': 'var(--brand-radius-500)',
         'brand-600': 'var(--brand-radius-600)',
+        'brand-700': 'var(--brand-radius-700)',
       },
       width: {
         'brand-fit': 'var(--brand-width-fit)',

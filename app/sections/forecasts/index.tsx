@@ -1,4 +1,9 @@
-import { SectionLayout } from '@/app/layouts/section';
+import {
+  SectionAltRow,
+  SectionInfoLink,
+  SectionLayout,
+  SectionUpdateInfo,
+} from '@/app/layouts/section';
 import {
   forecastDataSet,
   todayForecastDataSet,
@@ -46,6 +51,12 @@ export const ForecastsSection = () => {
             ))}
           </TabTriggers>
         </div>
+        <SectionAltRow className="mb-2 mt-0">
+          <SectionUpdateInfo
+            updatedAt="2024-02-05T11:59:20+0000"
+            className="md:hidden gap-2"
+          />
+        </SectionAltRow>
 
         <div className="">
           <TabPanel tab="today">
@@ -59,6 +70,17 @@ export const ForecastsSection = () => {
           </TabPanel>
         </div>
       </Tabs>
+      <SectionAltRow className="justify-end md:justify-between ">
+        <SectionInfoLink
+          name="Forecasts"
+          url="/"
+          className="flex-row-reverse md:flex"
+        />
+        <SectionUpdateInfo
+          updatedAt="2024-02-05T11:59:20+0000"
+          className="hidden md:flex"
+        />
+      </SectionAltRow>
     </SectionLayout>
   );
 };

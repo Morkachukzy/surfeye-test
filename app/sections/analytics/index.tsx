@@ -1,6 +1,11 @@
 'use client';
 
-import { SectionLayout } from '@/app/layouts/section';
+import {
+  SectionAltRow,
+  SectionInfoLink,
+  SectionLayout,
+  SectionUpdateInfo,
+} from '@/app/layouts/section';
 import { AnalyticCard, AnalyticCardTitle } from './analytic-card';
 import { analyticsData } from './analytics-data';
 import { cn } from '@/app/_theme/utils';
@@ -38,6 +43,12 @@ export const AnalyticsSection = () => {
         </h2>
         <div className=""></div>
       </div>
+      <SectionAltRow className="mb-2 mt-0">
+        <SectionUpdateInfo
+          updatedAt="2024-02-05T11:59:20+0000"
+          className="md:hidden gap-2"
+        />
+      </SectionAltRow>
       <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-4 items-stretch justify-center gap-8 flex-wrap">
         {analyticsData.map((analytic) => (
           <AnalyticCard
@@ -74,6 +85,17 @@ export const AnalyticsSection = () => {
           </div>
         ))}
       </AnalyticCard>
+      <SectionAltRow className="justify-end md:justify-between ">
+        <SectionInfoLink
+          name="Analytics"
+          url="/"
+          className="flex-row-reverse md:flex"
+        />
+        <SectionUpdateInfo
+          updatedAt="2024-02-05T11:59:20+0000"
+          className="hidden md:flex"
+        />
+      </SectionAltRow>
     </SectionLayout>
   );
 };

@@ -5,6 +5,7 @@ export * from './compass';
 export * from './direction';
 export * from './downloads';
 export * from './google-map';
+export * from './info';
 export * from './instagram';
 export * from './locations';
 export * from './location-pin';

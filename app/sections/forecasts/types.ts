@@ -12,3 +12,19 @@ export type ForecastData = {
     direction: CompassDirection;
   };
 };
+
+export type ForecastDayData = {
+  averageSurfDistance: string;
+  averageSwell: {
+    time: number;
+    direction: CompassDirection;
+  };
+  averageWind: {
+    speed: string;
+    direction: CompassDirection;
+  };
+  tides: {
+    swellTime: number;
+    surfDistance: number;
+  }[];
+};

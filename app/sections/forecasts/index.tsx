@@ -1,5 +1,9 @@
 import { SectionLayout } from '@/app/layouts/section';
-import { forecastDataSet } from './mocks/forecasts';
+import {
+  forecastDataSet,
+  todayForecastDataSet,
+  tomorrowForecastDataSet,
+} from './mocks/forecasts';
 import { Tab, TabPanel, TabTriggers, Tabs } from '@/app/components/tab';
 import { ForecastTable } from './table';
 import { ForecastChart } from './chart';
@@ -25,7 +29,7 @@ const tabs = [
 export const ForecastsSection = () => {
   return (
     <SectionLayout className="px-5 pb-11">
-      <Tabs defaultSelectedTab="one-week">
+      <Tabs defaultSelectedTab="today">
         <div className="flex items-center justify-between pb-3 md:pb-9 gap-1 brand-min:gap-2">
           <h2 className="uppercase text-brand-md brand-min:text-lg md:text-xl lg:text-2xl font-bold">
             Forecasts
@@ -47,11 +51,15 @@ export const ForecastsSection = () => {
         </div>
 
         <div className="">
-          {tabs.map((tab) => (
-            <TabPanel key={tab.id} tab={tab.id}>
-              <tab.render dataSet={forecastDataSet} />
-            </TabPanel>
-          ))}
+          <TabPanel tab="today">
+            <ForecastChart dataSet={todayForecastDataSet} />
+          </TabPanel>
+          <TabPanel tab="tomorrow">
+            <ForecastChart dataSet={tomorrowForecastDataSet} />
+          </TabPanel>
+          <TabPanel tab="one-week">
+            <ForecastTable dataSet={forecastDataSet} />
+          </TabPanel>
         </div>
       </Tabs>
     </SectionLayout>

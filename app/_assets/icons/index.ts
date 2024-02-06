@@ -12,6 +12,8 @@ export * from './menu';
 export * from './play';
 export * from './preview';
 export * from './star';
+export * from './sunrise';
+export * from './sunset';
 export * from './surf-wave';
 export * from './swell';
 export * from './tides';

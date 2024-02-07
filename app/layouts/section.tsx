@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import { useDebounce, useIntersectionObserver } from '@uidotdev/usehooks';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { genericDateFormat } from '../_utils/date';
 
 type SectionLayoutProps = Readonly<{
   children?: React.ReactNode;
@@ -96,7 +97,7 @@ export const SectionUpdateInfo = ({
   return (
     <div className={cn('flex items-center gap-4', className)}>
       <span className="font-normal">Last update</span>
-      <span className="font-bold">{updatedAt}</span>
+      <span className="font-bold">{genericDateFormat(updatedAt)}</span>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useCallback, useMemo, useRef } from 'react';
 import { ChevronDownIcon } from '@/app/_assets/icons';
 import { useOnClickOutside } from '@/app/hooks/use-on-click-outside';
 import { useDisclosure } from '@/app/hooks/use-disclosure';
@@ -19,7 +19,7 @@ type GenericDropdownProps = {
 };
 
 export const GenericDropdown = ({
-  value,
+  value = '',
   onChange,
   options = [],
   placeholder,
@@ -29,7 +29,6 @@ export const GenericDropdown = ({
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   useOnClickOutside(dropdownRef, () => {
-    // console.log('click outside');
     close();
   });
 
@@ -37,6 +36,12 @@ export const GenericDropdown = ({
     onChange?.(value);
     close();
   };
+
+  const selectedLabel = useMemo(() => {
+    const labelIndex = options.findIndex((option) => option.value === value);
+
+    return labelIndex === -1 ? placeholder : options[labelIndex].label;
+  }, [options, placeholder, value]);
 
   return (
     <div className="relative" ref={dropdownRef}>
@@ -50,13 +55,13 @@ export const GenericDropdown = ({
         small
         rightIcon={<ChevronDownIcon className="w-4 h-2 stroke-brand-primary" />}
       >
-        {value || placeholder}
+        {selectedLabel}
       </GenericButton>
 
       {isOpen && options.length > 0 ? (
         <div
           className={cn(
-            'bg-white z-30 absolute top-[calc(100%+1rem)] inset-x-0 shadow-brand-300 rounded-3xl overflow-hidden'
+            'bg-white z-30 h-[200px] md:h-[270px] overflow-y-auto absolute top-[calc(100%+1rem)] inset-x-0 shadow-brand-300 rounded-3xl '
           )}
         >
           {options.map((option) => (
@@ -64,7 +69,14 @@ export const GenericDropdown = ({
               key={option.value}
               onClick={() => handleClick(option.value)}
               variant="stripped"
-              className="justify-between gap-8 transition-colors hover:bg-brand-primary hover:text-brand-light rounded-none"
+              className={cn(
+                'justify-between gap-8 transition-colors rounded-none',
+                {
+                  'bg-brand-primary text-brand-light ':
+                    option.label === selectedLabel,
+                  'hover:bg-brand-grey': option.label !== selectedLabel,
+                }
+              )}
               wide
               small
             >

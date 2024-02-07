@@ -52,6 +52,7 @@ export const RecordingAreaSection = () => {
             placeholder="Select recording area"
             value={value}
             options={dropdownOptions}
+            onChange={(value) => setValue(value)}
           />
 
           <div className="shadow-brand-600 rounded-3xl px-6 py-6 lg:px-9 lg:py-10 flex items-center gap-8">

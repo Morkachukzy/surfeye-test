@@ -20,7 +20,7 @@ export const SectionLayout = ({
 }: SectionLayoutProps) => {
   const router = useRouter();
   const [ref, entry] = useIntersectionObserver<HTMLDivElement>({
-    threshold: 0,
+    threshold: 0.8,
     root: null,
     rootMargin: '0px',
   });

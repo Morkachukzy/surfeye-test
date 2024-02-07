@@ -9,7 +9,7 @@ const navbarRelativeIds = {
   live: 'live',
   analytics: 'analytics',
   recordingArea: 'recording-area',
-  forecast: 'forecast',
+  forecast: 'forecasts',
   about: 'about',
 };
 
@@ -37,7 +37,7 @@ const routes = [
     path: navbarRelativeIds.recordingArea,
   },
   {
-    label: 'Forecast',
+    label: 'Forecasts',
     path: navbarRelativeIds.forecast,
   },
   {
@@ -49,7 +49,7 @@ const routes = [
 export const NavbarTabs = () => {
   const urlHash = useHash();
   return (
-    <div className="border-b z-50 sticky top-0 bg-brand-light border-brand-primary border-opacity-15 flex items-stretch justify-between">
+    <div className="border-b z-[9999] sticky top-0 bg-brand-light border-brand-primary border-opacity-15 flex items-stretch justify-between">
       {routes.map((route) => (
         <div
           className="flex-1 text-center justify-between gap-5"

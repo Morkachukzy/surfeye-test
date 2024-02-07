@@ -14,8 +14,11 @@ const dropdownOptions = [
 export const AboutSection = () => {
   const [value, setValue] = useState('read-more');
   return (
-    <SectionLayout className="pb-14 space-y-2 md:space-y-3.5 lg:space-y-3.5 px-7 md:px-7">
-      <div className="">
+    <SectionLayout
+      className="pb-14 space-y-2 md:space-y-3.5 lg:space-y-3.5 px-7 md:px-7"
+      relativeId="about"
+    >
+      <div className="" id="about">
         <h2 className="uppercase text-xl md:text-2xl font-bold">
           About Nova Praia
         </h2>

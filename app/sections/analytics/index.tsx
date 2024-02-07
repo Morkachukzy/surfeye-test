@@ -41,7 +41,10 @@ export const AnalyticsSection = () => {
       relativeId="analytics"
     >
       <Tabs defaultSelectedTab="30min">
-        <div className="flex  items-center gap-2 justify-between mb-[1.625rem]">
+        <div
+          className="flex  items-center gap-2 justify-between mb-[1.625rem]"
+          id="analytics"
+        >
           <button
             onClick={push}
             className="uppercase flex-shrink-0 leading-tight text-lg px-0 md:text-2xl lg:text-3xl font-bold"

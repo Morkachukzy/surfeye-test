@@ -3,7 +3,7 @@ import { LiveVideos } from './live';
 
 export const HeroSection = () => {
   return (
-    <SectionLayout>
+    <SectionLayout relativeId="live">
       <LiveVideos />
     </SectionLayout>
   );

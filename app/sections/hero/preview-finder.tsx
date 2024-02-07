@@ -3,13 +3,11 @@
 import { ArrowLeftIcon, PlayIcon } from '@/app/_assets/icons';
 import { GenericButton } from '@/app/components/button';
 import { Carousel, CarouselItem } from '@/app/components/carousel';
-import { waves as liveVideos, waves } from './mocks/wave-videos';
 import { Tabs, TabTriggers, Tab, TabPanel } from '@/app/components/tab';
 import { cn } from '@/app/_theme/utils';
 import { LiveBadge } from '@/app/components/badge/live';
 import { useRef } from 'react';
-import { createIntersectionObserver } from '@/app/_utils/create-intersection-observer';
-import { createNumberList } from '@/app/_utils/create-number-list';
+import { AllWaveVideos } from './mocks/wave-videos';
 
 const formattedWavesData = [
   {
@@ -37,11 +35,15 @@ export type WaveVideo = {
 };
 
 type VideoPreviewFinderProps = {
-  selectedVideo: WaveVideo | null;
+  defaultSelectedWaveType: string;
+  waves: AllWaveVideos;
+  selectedVideo: WaveVideo;
   // eslint-disable-next-line no-unused-vars
   setSelectedVideo?: (wave: WaveVideo) => void;
 };
 export const VideoPreviewFinder = ({
+  defaultSelectedWaveType,
+  waves,
   selectedVideo,
   setSelectedVideo,
 }: VideoPreviewFinderProps) => {
@@ -50,32 +52,6 @@ export const VideoPreviewFinder = ({
   };
 
   const carouselRef = useRef<HTMLDivElement | null>(null);
-  console.log('number list', createNumberList(0, 1, 0.01));
-  // const activeVideoEl = document.querySelector(
-  //   '.active-video'
-  // ) as HTMLDivElement;
-  // createIntersectionObserver({
-  //   options: {
-  //     root: carouselRef.current,
-  //     threshold: createNumberList(0, 1, 0.01),
-  //   },
-  //   entryCallback: (entry) => {
-  //     console.log('entry:', entry);
-  //     console.log('entry.isIntersecting:', entry.isIntersecting);
-  //     console.log('entry.intersectionRatio:', entry.intersectionRatio);
-  //     if (entry.isIntersecting) {
-  //       const intersectionRatio = entry.intersectionRatio;
-  //       const elementWidth = 150;
-  //       const computedWidth = intersectionRatio * elementWidth;
-  //       activeVideoEl.style.width = `${computedWidth}px`;
-  //       console.log('width:', activeVideoEl.style.width);
-  //     }
-  //   },
-  //   observerCallback: (observer) => {
-  //     if (!activeVideoEl) return;
-  //     observer.observe(activeVideoEl);
-  //   },
-  // });
 
   return (
     <div className="">
@@ -83,7 +59,7 @@ export const VideoPreviewFinder = ({
         className="pb-6 pt-3.5 bg-brand-primary xl:max-w-[820px] mx-auto xl:rounded-b-3xl space-y-3"
         ref={carouselRef}
       >
-        <Tabs defaultSelectedTab="topSurfedWaves">
+        <Tabs defaultSelectedTab={defaultSelectedWaveType}>
           <div className="px-3 md:px-8 flex gap-4 justify-between items-center mb-[18px] md:mb-3">
             <TabTriggers
               aria-label="wave videos"
@@ -118,18 +94,20 @@ export const VideoPreviewFinder = ({
                   >
                     <div
                       className={cn(
-                        'flex items-center justify-center rounded-2xl w-[150px] border-2 border-transparent transition-all bg-brand-dark-green aspect-[150/85] relative cursor-pointer',
+                        'flex items-center justify-center rounded-2xl w-[150px] transition-all  aspect-[150/85] relative cursor-pointer',
                         {
-                          'border-brand-red-2 active-video':
+                          ' border-2 border-brand-red-2 active-video':
                             isSelectedVideo(video),
                         }
                       )}
                       onClick={() => setSelectedVideo?.(video)}
                     >
+                      <video className="w-full h-full object-cover rounded-2xl">
+                        <source src={video.url} type="video/mp4" />
+                      </video>
                       {isSelectedVideo(video) ? (
-                        <LiveBadge className=" top-1.5 left-1.5" />
+                        <LiveBadge className="top-1.5 left-1.5" />
                       ) : null}
-                      {waveType.id}
                       <PlayIcon className="absolute" />
                     </div>
                   </CarouselItem>

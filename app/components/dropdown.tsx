@@ -27,6 +27,7 @@ export const GenericDropdown = ({
   const { isOpen, toggle, close } = useDisclosure();
 
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const dropdownDrawerRef = useRef<HTMLDivElement | null>(null);
 
   useOnClickOutside(dropdownRef, () => {
     close();
@@ -35,6 +36,11 @@ export const GenericDropdown = ({
   const handleClick = (value: string) => {
     onChange?.(value);
     close();
+  };
+
+  const toggleDropdown = () => {
+    toggle();
+    dropdownDrawerRef?.current?.focus();
   };
 
   const selectedLabel = useMemo(() => {
@@ -46,7 +52,7 @@ export const GenericDropdown = ({
   return (
     <div className="relative" ref={dropdownRef}>
       <GenericButton
-        onClick={toggle}
+        onClick={toggleDropdown}
         variant="secondary"
         className={cn('justify-between gap-8 shadow-brand-300', {
           'text-opacity-30': !value,
@@ -60,6 +66,7 @@ export const GenericDropdown = ({
 
       {isOpen && options.length > 0 ? (
         <div
+          ref={dropdownDrawerRef}
           className={cn(
             'bg-white z-30 h-[200px] md:h-[270px] overflow-y-auto absolute top-[calc(100%+1rem)] inset-x-0 shadow-brand-300 rounded-3xl '
           )}

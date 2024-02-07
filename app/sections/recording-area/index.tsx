@@ -8,16 +8,16 @@ import { GenericButton } from '@/app/components/button';
 import { GoogleMapIcon } from '@/app/_assets/icons';
 
 const dropdownOptions = [
-  { label: 'Read more', value: '10' },
-  { label: '15 min', value: '15' },
-  { label: '30 min', value: '30' },
-  { label: '45 min', value: '45' },
-  { label: '1 hr', value: '60' },
-  { label: '2 hr', value: '120' },
+  { label: 'Sao Paulo', value: 'sao-paulo' },
+  { label: 'Portugal', value: 'portugal' },
+  { label: '30 min', value: 'dubai' },
+  { label: 'Venice', value: 'venice' },
+  { label: 'Barcelona', value: 'barcelona' },
 ];
 
 export const RecordingAreaSection = () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState('sao-paulo');
+
   return (
     <SectionLayout
       className="pb-5 lg:pb-12 space-y-3 px-5"
@@ -52,7 +52,7 @@ export const RecordingAreaSection = () => {
             placeholder="Select recording area"
             value={value}
             options={dropdownOptions}
-            onChange={(value) => setValue(value)}
+            onChange={setValue}
           />
 
           <div className="shadow-brand-600 rounded-3xl px-6 py-6 lg:px-9 lg:py-10 flex items-center gap-8">

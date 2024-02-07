@@ -1,7 +1,18 @@
+'use client';
+
 import { GenericDropdown } from '@/app/components/dropdown';
 import { SectionLayout } from '@/app/layouts/section';
+import { useState } from 'react';
+
+const dropdownOptions = [
+  { label: 'Read more about Surfeye', value: 'read-more' },
+  { label: 'Contact the team behind this', value: 'contact-us' },
+  { label: 'Want a feature', value: 'want-a-feature' },
+  { label: 'Feedback', value: 'feedback' },
+];
 
 export const AboutSection = () => {
+  const [value, setValue] = useState('read-more');
   return (
     <SectionLayout className="pb-14 space-y-2 md:space-y-3.5 lg:space-y-3.5 px-7 md:px-7">
       <div className="">
@@ -19,7 +30,12 @@ export const AboutSection = () => {
           optimal direction for swells.
         </p>
         <div className="max-w-xl">
-          <GenericDropdown value="Read more" />
+          <GenericDropdown
+            placeholder="Reach out to us?"
+            value={value}
+            options={dropdownOptions}
+            onChange={setValue}
+          />
         </div>
       </div>
     </SectionLayout>

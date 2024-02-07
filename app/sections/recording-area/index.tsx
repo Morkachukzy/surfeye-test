@@ -19,9 +19,14 @@ const dropdownOptions = [
 export const RecordingAreaSection = () => {
   const [value, setValue] = useState('');
   return (
-    <SectionLayout className="pb-5 lg:pb-12 space-y-3 px-5">
+    <SectionLayout
+      className="pb-5 lg:pb-12 space-y-3 px-5"
+      relativeId="recording-area"
+    >
       <div className="flex items-center justify-between brand-big-tablet:pb-4">
-        <h2 className="uppercase text-xl md:text-2xl font-bold">Recording area</h2>
+        <h2 className="uppercase text-xl md:text-2xl font-bold">
+          Recording area
+        </h2>
       </div>
       <div className="flex flex-col brand-big-tablet:flex-row items-stretch gap-5 brand-big-tablet:gap-7 pb-2 md:pb-4">
         <div className="relative flex-1 rounded-3xl overflow-hidden w-full md:w-unset aspect-[357/221]">

@@ -1,18 +1,50 @@
+'use client';
+
 import { cn } from '@/app/_theme/utils';
 import { InfoIcon } from '@/app/_assets/icons';
 import Link from 'next/link';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
+import { useDebounce, useIntersectionObserver } from '@uidotdev/usehooks';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 type SectionLayoutProps = Readonly<{
   children?: React.ReactNode;
   className?: string;
+  relativeId?: string;
 }>;
-export const SectionLayout = ({ children, className }: SectionLayoutProps) => {
+export const SectionLayout = ({
+  children,
+  className,
+  relativeId,
+}: SectionLayoutProps) => {
+  const router = useRouter();
+  const [ref, entry] = useIntersectionObserver<HTMLDivElement>({
+    threshold: 0,
+    root: null,
+    rootMargin: '0px',
+  });
+  const first = useRef(0);
+  if (entry?.isIntersecting && relativeId) {
+    router.push(`#${relativeId}`, { scroll: false });
+    first.current = entry.intersectionRatio;
+  }
+
   return (
-    <section className={cn('max-w-brand-section mx-auto ', className)}>
+    <section
+      ref={ref}
+      className={cn('max-w-brand-section mx-auto ', className)}
+    >
       {children}
     </section>
   );
+};
+
+type SectionTitleProps = {
+  children: ReactNode;
+  className?: string;
+};
+export const SectionTitle = ({ className, children }: SectionTitleProps) => {
+  return <div className={cn(className)}>{children}</div>;
 };
 
 type SectionAltRowProps = {

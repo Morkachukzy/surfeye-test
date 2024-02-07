@@ -16,7 +16,7 @@ export const LiveVideos = () => {
 
 export const VideoPreview = () => {
   return (
-    <div className="max-w-brand-spotlight mx-auto w-full aspect-[390/221] lg:aspect-[960/442] xl:rounded-3xl bg-brand-primary relative">
+    <div className="max-w-[60rem] mx-auto w-full aspect-[390/221] lg:aspect-[960/442] xl:rounded-3xl bg-brand-primary relative">
       <LiveBadge />
     </div>
   );

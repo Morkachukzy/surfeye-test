@@ -11,6 +11,8 @@ import { analyticsData } from './analytics-data';
 import { cn } from '@/app/_theme/utils';
 import { useMemo, useState } from 'react';
 import { Tab, TabTriggers, Tabs } from '@/app/components/tab';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const tabs = '';
 
@@ -29,13 +31,23 @@ export const AnalyticsSection = () => {
       label: '90min',
     },
   ];
+
+  const router = useRouter();
+
+  const push = () => router.push('/#analytics', { scroll: false });
   return (
-    <SectionLayout className="pb-4 md:pb-10 lg:pb-[4.25rem] px-5">
+    <SectionLayout
+      className="pb-4 md:pb-10 lg:pb-[4.25rem] px-5"
+      relativeId="analytics"
+    >
       <Tabs defaultSelectedTab="30min">
         <div className="flex  items-center gap-2 justify-between mb-[1.625rem]">
-          <h2 className="uppercase flex-shrink-0 leading-tight text-lg px-0 md:text-2xl lg:text-3xl font-bold">
+          <button
+            onClick={push}
+            className="uppercase flex-shrink-0 leading-tight text-lg px-0 md:text-2xl lg:text-3xl font-bold"
+          >
             Live surf <span className="text-brand-dark-green">analytics</span>
-          </h2>
+          </button>
           <div className="">
             <TabTriggers
               aria-label="analytics-data-vis"

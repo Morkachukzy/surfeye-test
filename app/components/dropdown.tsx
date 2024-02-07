@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useMemo, useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { ChevronDownIcon } from '@/app/_assets/icons';
 import { useOnClickOutside } from '@/app/hooks/use-on-click-outside';
 import { useDisclosure } from '@/app/hooks/use-disclosure';

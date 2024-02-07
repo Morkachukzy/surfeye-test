@@ -1,9 +1,7 @@
 'use client';
 import { cn } from '@/app/_theme/utils';
 import { useHash } from '@/app/hooks/use-hash';
-import { SectionLayout } from '@/app/layouts/section';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 
 const navbarRelativeIds = {
   live: 'live',

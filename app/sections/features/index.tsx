@@ -5,7 +5,7 @@ import { FeatureCard } from './feature-card';
 import { features } from './features';
 import { Carousel, CarouselItem } from '@/app/components/carousel';
 import { GenericButton } from '@/app/components/button';
-import { useMediaQuery } from '@uidotdev/usehooks';
+import { useMediaQuery } from '@/app/hooks/use-media-query';
 
 export const FeaturesSection = () => {
   const isHDDevice = useMediaQuery('only screen and (min-width : 1280px)');

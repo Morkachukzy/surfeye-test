@@ -3,9 +3,9 @@
 import { cn } from '@/app/_theme/utils';
 import { InfoIcon } from '@/app/_assets/icons';
 import Link from 'next/link';
-import { ReactNode, useEffect, useRef, useState } from 'react';
-import { useDebounce, useIntersectionObserver } from '@uidotdev/usehooks';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { ReactNode, useRef } from 'react';
+import { useIntersectionObserver } from '@uidotdev/usehooks';
+import { useRouter } from 'next/navigation';
 import { genericDateFormat } from '../_utils/date';
 
 type SectionLayoutProps = Readonly<{

@@ -9,9 +9,7 @@ import {
 import { AnalyticCard, AnalyticCardTitle } from './analytic-card';
 import { analyticsData } from './analytics-data';
 import { cn } from '@/app/_theme/utils';
-import { useMemo, useState } from 'react';
 import { Tab, TabTriggers, Tabs } from '@/app/components/tab';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 const tabs = '';

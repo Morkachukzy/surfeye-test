@@ -3,7 +3,7 @@
 import { cn } from '@/app/_theme/utils';
 import { chunk } from '@/app/_utils/chunk';
 import { range } from '@/app/_utils/range';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useRef, useState } from 'react';
 
 type CarouselProps = {
   children?: React.ReactNode;

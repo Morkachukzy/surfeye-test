@@ -21,6 +21,7 @@
     "react-dom": "^18",
     "sass": "^1.70.0",
     "tailwind-merge": "^2.2.1",
+    "usehooks-ts": "^2.13.0",
     "victory": "^36.9.0"
   },
   "devDependencies": {

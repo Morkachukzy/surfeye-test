@@ -1,10 +1,14 @@
+'use client';
+
 import { SectionLayout } from '@/app/layouts/section';
 import { FeatureCard } from './feature-card';
 import { features } from './features';
 import { Carousel, CarouselItem } from '@/app/components/carousel';
 import { GenericButton } from '@/app/components/button';
+import { useMediaQuery } from '@uidotdev/usehooks';
 
 export const FeaturesSection = () => {
+  const isHDDevice = useMediaQuery('only screen and (min-width : 1280px)');
   return (
     <SectionLayout className="pb-10 px-0 md:px-0 lg:px-0 space-y-3.5">
       <div className="flex items-center gap-3.5 justify-between px-4 md:px-6 lg:px-4 xl:px-0">
@@ -16,7 +20,7 @@ export const FeaturesSection = () => {
         </GenericButton>
       </div>
 
-      <Carousel className="py-3 px-5 gap-4">
+      <Carousel className="py-3 px-5 gap-4" hideControls={isHDDevice}>
         {features.map(({ title, description, icon: Icon }) => (
           <CarouselItem key={title} className="last:pr-5">
             <FeatureCard>

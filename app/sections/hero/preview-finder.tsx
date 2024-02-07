@@ -110,7 +110,7 @@ export const VideoPreviewFinder = ({
           </div>
           {formattedWavesData.map((waveType) => (
             <TabPanel key={waveType.id} tab={waveType.id}>
-              <Carousel className="overflow-x-auto">
+              <Carousel className="overflow-x-auto" hideControls>
                 {waves[waveType.id].map((video) => (
                   <CarouselItem
                     key={video.id}

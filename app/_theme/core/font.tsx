@@ -1,6 +1,18 @@
-import { Exo_2 } from 'next/font/google';
+import localFont from 'next/font/local';
 
-const exo_2 = Exo_2({ subsets: ['latin'], variable: '--font-exo' });
+const exo2 = localFont({
+  src: [
+    {
+      path: '../../_assets/fonts/Exo_2.ttf',
+      style: 'normal',
+    },
+    {
+      path: '../../_assets/fonts/Exo_2-Italic.ttf',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-exo',
+});
 
 type SimpleNextFont = Record<string, unknown> & { variable: string };
 
@@ -10,6 +22,6 @@ const combineFonts = (...fonts: SimpleNextFont[]) => {
   }, '');
 };
 
-export const appFonts = combineFonts(exo_2);
+export const appFonts = combineFonts(exo2);
 
 export default appFonts;

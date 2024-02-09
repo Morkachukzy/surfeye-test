@@ -5,6 +5,8 @@ import { forwardRef, useRef, useState } from 'react';
 import { LiveBadge } from '@/app/components/badge/live';
 import { waves } from './mocks/wave-videos';
 
+import './video.scss';
+
 export const LiveVideos = () => {
   const defaultSelectedWaveType = 'topSurfedWaves';
   const [video, setVideo] = useState<WaveVideo>(waves.live);
@@ -51,8 +53,8 @@ export const VideoPreview = forwardRef<HTMLDivElement, VideoPreviewProps>(
       >
         <video
           className="w-full h-full object-cover lg:rounded-2xl"
+          disableRemotePlayback
           autoPlay
-          controls
         >
           <source src={video.url} type="video/mp4" />
         </video>

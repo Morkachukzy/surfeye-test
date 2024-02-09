@@ -87,6 +87,25 @@ export const VideoPreviewFinder = ({
           {formattedWavesData.map((waveType) => (
             <TabPanel key={waveType.id} tab={waveType.id}>
               <Carousel className="overflow-x-auto" hideControls>
+                <CarouselItem className="first:pl-3 md:first:pl-8 last:pr-3 md:last:pr-8">
+                  <div
+                    className={cn(
+                      'flex items-center justify-center rounded-2xl w-[150px] transition-all  aspect-[150/85] relative cursor-pointer',
+                      {
+                        ' border-2 border-brand-red-2 active-video':
+                          isSelectedVideo(waves.live),
+                      }
+                    )}
+                    onClick={() => setSelectedVideo?.(waves.live)}
+                  >
+                    <video className="w-full h-full object-cover rounded-2xl">
+                      <source src={waves.live.url} type="video/mp4" />
+                    </video>
+                    <LiveBadge className="top-1.5 left-1.5" />
+                    <PlayIcon className="absolute" />
+                  </div>
+                </CarouselItem>
+
                 {waves[waveType.id].map((video) => (
                   <CarouselItem
                     key={video.id}
@@ -94,9 +113,9 @@ export const VideoPreviewFinder = ({
                   >
                     <div
                       className={cn(
-                        'flex items-center justify-center rounded-2xl w-[150px] transition-all  aspect-[150/85] relative cursor-pointer',
+                        'flex items-center justify-center rounded-2xl w-[150px] transition-all aspect-[150/85] relative cursor-pointer',
                         {
-                          ' border-2 border-brand-red-2 active-video':
+                          'active-video border-2 border-white':
                             isSelectedVideo(video),
                         }
                       )}
@@ -105,9 +124,6 @@ export const VideoPreviewFinder = ({
                       <video className="w-full h-full object-cover rounded-2xl">
                         <source src={video.url} type="video/mp4" />
                       </video>
-                      {isSelectedVideo(video) ? (
-                        <LiveBadge className="top-1.5 left-1.5" />
-                      ) : null}
                       <PlayIcon className="absolute" />
                     </div>
                   </CarouselItem>

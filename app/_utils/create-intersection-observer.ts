@@ -2,7 +2,7 @@
 type IntersectionObserverInit = {
   root?: Element | Document | null;
   rootMargin?: string;
-  threshold?: number[];
+  threshold?: number | number[];
 };
 type CreateIntersectionObserverArgs = {
   options: IntersectionObserverInit;

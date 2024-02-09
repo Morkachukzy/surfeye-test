@@ -107,6 +107,11 @@ const topSurfedWaves = [
 ] as const;
 
 export const waves = {
+  live: {
+    id: nanoid(),
+    name: 'video.mp4',
+    url: 'https://www.surfeye.video/web/top-wave-1.mp4',
+  },
   latestWaves,
   topSurfedWaves,
 } as const;

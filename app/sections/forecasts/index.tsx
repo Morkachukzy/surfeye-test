@@ -33,10 +33,7 @@ export const ForecastsSection = () => {
   return (
     <SectionLayout className="px-5 pb-11" relativeId="forecasts">
       <Tabs defaultSelectedTab="today">
-        <div
-          className="flex items-center justify-between pb-3 md:pb-9 gap-1 brand-min:gap-2"
-          id="forecasts"
-        >
+        <div className="flex items-center justify-between pb-3 md:pb-9 gap-1 brand-min:gap-2">
           <h2 className="uppercase text-brand-md brand-min:text-lg md:text-xl lg:text-2xl font-bold">
             Forecasts
           </h2>

@@ -12,7 +12,7 @@ export const LiveVideos = () => {
   );
 
   return (
-    <div className="xl:px-4 pb-7 md:pb-9" id="live">
+    <div className="xl:px-4 pb-7 md:pb-9">
       <VideoPreview video={video} key={video.id} />
       <VideoPreviewFinder
         defaultSelectedWaveType={defaultSelectedWaveType}

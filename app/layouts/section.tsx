@@ -34,6 +34,7 @@ export const SectionLayout = ({
     <section
       ref={ref}
       className={cn('max-w-brand-section mx-auto ', className)}
+      id={relativeId}
     >
       {children}
     </section>

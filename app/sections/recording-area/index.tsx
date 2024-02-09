@@ -23,10 +23,7 @@ export const RecordingAreaSection = () => {
       className="pb-5 lg:pb-12 space-y-3 px-5"
       relativeId="recording-area"
     >
-      <div
-        className="flex items-center justify-between brand-big-tablet:pb-4"
-        id="recording-area"
-      >
+      <div className="flex items-center justify-between brand-big-tablet:pb-4">
         <h2 className="uppercase text-xl md:text-2xl font-bold">
           Recording area
         </h2>

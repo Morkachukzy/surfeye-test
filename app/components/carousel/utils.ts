@@ -36,9 +36,18 @@ export const scrollSectionIntoView = <T extends HTMLElement>(
 export const getMonitoredChunks = <T extends HTMLElement>(chunkList: T[][]) => {
   let monitoredChunks: T[] = [];
 
+  console.log('chunkList', chunkList);
+
   chunkList.forEach((chunk, index) => {
     const chunkLength = chunk.length;
-    const monitoredChunkIndex = index === 0 ? 0 : Math.ceil(chunkLength / 2);
+
+    const middleChunkIndex =
+      Math.ceil(chunkLength / 2) < chunkLength
+        ? Math.ceil(chunkLength / 2)
+        : Math.floor(chunkLength / 2);
+
+    const monitoredChunkIndex = index === 0 ? 0 : middleChunkIndex;
+
     monitoredChunks.push(chunk[monitoredChunkIndex]);
   });
   return monitoredChunks;
@@ -66,12 +75,13 @@ export const attachObservers = <T extends HTMLElement>(
   };
 
   const monitoredChunks = getMonitoredChunks(chunkList);
-
+  console.log('monitoredChunks', monitoredChunks);
   monitoredChunks.forEach((chunk, index) => {
     createIntersectionObserver({
       options: observerInitOptions,
       entryCallback,
       observerCallback: (observer) => {
+        if (!chunk) return;
         chunk.setAttribute('data-observable', `${index + 1}`);
 
         observer.observe(chunk);

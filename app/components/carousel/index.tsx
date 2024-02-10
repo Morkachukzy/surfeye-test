@@ -20,7 +20,6 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
   ({ children, className, hideControls }, ref) => {
     const [sectionIndex, setSectionIndex] = useState(1);
 
-    console.log('SEction INdex', sectionIndex);
     const innerCarouselRef = useRef<HTMLDivElement>();
     const outerCarouselRef = useRef<HTMLDivElement>(null);
 

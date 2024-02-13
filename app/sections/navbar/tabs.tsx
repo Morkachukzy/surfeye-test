@@ -1,7 +1,6 @@
 'use client';
+import { useNavRoute } from '@/app/_store/navbar';
 import { cn } from '@/app/_theme/utils';
-import { useHash } from '@/app/hooks/use-hash';
-import Link from 'next/link';
 
 const navbarRelativeIds = {
   live: 'live',
@@ -10,9 +9,6 @@ const navbarRelativeIds = {
   forecast: 'forecasts',
   about: 'about',
 };
-
-const createRelativeUrl = (id: string) => `#${id}`;
-
 const RecAreaLabel = () => {
   return (
     <span className=" not-italic">
@@ -21,7 +17,7 @@ const RecAreaLabel = () => {
   );
 };
 
-const routes = [
+export const routes = [
   {
     label: 'Live',
     path: navbarRelativeIds.live,
@@ -45,7 +41,7 @@ const routes = [
 ];
 
 export const NavbarTabs = () => {
-  const urlHash = useHash();
+  const currentRoute = useNavRoute((state) => state.currentRoute);
 
   const handleClick = (id: string) => {
     const section = document.getElementById(id);
@@ -53,7 +49,7 @@ export const NavbarTabs = () => {
     if (section) {
       const sectionTop = section.offsetTop;
       window.scrollTo({
-        top: sectionTop - 49 - 10,
+        top: sectionTop - 59,
         behavior: 'smooth',
       });
     }
@@ -61,7 +57,7 @@ export const NavbarTabs = () => {
 
   return (
     <div className="border-b z-[9999] sticky top-0 bg-brand-light border-brand-primary border-opacity-15 flex items-stretch justify-between">
-      {routes.map((route) => (
+      {routes.map((route, index) => (
         <div
           className="flex-1 text-center justify-between gap-5"
           key={route.path}
@@ -71,11 +67,10 @@ export const NavbarTabs = () => {
               'inline-block w-brand-fit not-italic -mb-[1px] text-md md:text-lg font-semibold pt-2 pb-2 md:pb-3',
               {
                 'border-b-2 mx-auto border-brand-primary ':
-                  urlHash === route.path,
+                  currentRoute === route.path,
               }
             )}
             onClick={() => handleClick(route.path)}
-            // href={createRelativeUrl(route.path)}
           >
             {route.label}
           </button>

@@ -1,18 +1,14 @@
 'use client';
 
-import { gsap, ScrollTrigger } from '@/app/_libs/gsap';
-import { useGSAP } from '@gsap/react';
 import { ArrowLeftIcon, PlayIcon } from '@/app/_assets/icons';
 import { GenericButton } from '@/app/components/button';
 import { Carousel, CarouselItem } from '@/app/components/carousel';
 import { Tabs, TabTriggers, Tab, TabPanel } from '@/app/components/tab';
 import { cn } from '@/app/_theme/utils';
 import { LiveBadge } from '@/app/components/badge/live';
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { AllWaveVideos } from './mocks/wave-videos';
-import { debounce } from 'remeda';
 import { createIntersectionObserver } from '@/app/_utils/create-intersection-observer';
-import { useIntersectionObserver } from '@uidotdev/usehooks';
 import { useIsomorphicLayoutEffect } from 'usehooks-ts';
 
 const formattedWavesData = [

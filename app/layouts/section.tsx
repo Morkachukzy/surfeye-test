@@ -5,8 +5,8 @@ import { InfoIcon } from '@/app/_assets/icons';
 import Link from 'next/link';
 import { ReactNode, useRef } from 'react';
 import { useIntersectionObserver } from '@uidotdev/usehooks';
-import { useRouter } from 'next/navigation';
-import { genericDateFormat } from '../_utils/date';
+import { genericDateFormat } from '@/app/_utils/date';
+import { useNavRoute } from '@/app/_store/navbar';
 
 type SectionLayoutProps = Readonly<{
   children?: React.ReactNode;
@@ -18,17 +18,20 @@ export const SectionLayout = ({
   className,
   relativeId,
 }: SectionLayoutProps) => {
-  // const router = useRouter();
+  const setNavRoute = useNavRoute((state) => state.setNavRoute);
+
   const [ref, entry] = useIntersectionObserver<HTMLDivElement>({
     threshold: 0.8,
     root: null,
     rootMargin: '0px',
   });
-  // const first = useRef(0);
-  // if (entry?.isIntersecting && relativeId) {
-  //   router.push(`#${relativeId}`, { scroll: false });
-  //   first.current = entry.intersectionRatio;
-  // }
+
+  const first = useRef(0);
+
+  if (entry?.isIntersecting && relativeId) {
+    setNavRoute(relativeId);
+    first.current = entry.intersectionRatio;
+  }
 
   return (
     <section

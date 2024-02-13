@@ -3,8 +3,6 @@ import ThemeProvider from '@/app/_theme/provider';
 
 export { appFonts } from '@/app/_theme/provider';
 
-import '@/app/_libs/gsap';
-
 export type RootProviderProps = {
   children: React.ReactNode;
 };

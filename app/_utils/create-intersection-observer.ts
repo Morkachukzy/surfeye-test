@@ -21,5 +21,8 @@ export const createIntersectionObserver = ({
 
   observerCallback?.(observer);
 
-  return observer;
+  const unobserve = (el: HTMLElement) => {
+    observer.unobserve(el);
+  };
+  return { observer, unobserve };
 };

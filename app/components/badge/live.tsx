@@ -3,8 +3,12 @@ import { Badge, type BadgeProps } from '.';
 
 type LiveBadgeProps = {
   className?: BadgeProps['className'];
+  indicatorClassName?: BadgeProps['className'];
 };
-export const LiveBadge = ({ className }: LiveBadgeProps) => {
+export const LiveBadge = ({
+  className,
+  indicatorClassName,
+}: LiveBadgeProps) => {
   return (
     <Badge
       className={cn(
@@ -12,7 +16,12 @@ export const LiveBadge = ({ className }: LiveBadgeProps) => {
         className
       )}
     >
-      <span className="w-2.5 h-2.5 bg-brand-red-2 rounded-full" />
+      <span
+        className={cn(
+          'w-1.5 h-1.5 md:w-2.5 md:h-2.5 bg-brand-red-2 rounded-full',
+          indicatorClassName
+        )}
+      />
       <span className="">Live</span>
     </Badge>
   );

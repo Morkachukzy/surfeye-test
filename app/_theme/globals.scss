@@ -134,4 +134,9 @@ h6 {
   .border-b-2 {
     border-bottom: 2px solid;
   }
+
+  .fade-bg {
+    background: linear-gradient(90deg, #01243c 64%, rgba(1, 36, 60, 0) 91.07%);
+    width: 75px;
+  }
 }

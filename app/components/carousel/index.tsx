@@ -13,11 +13,12 @@ import { CarouselControl } from './control';
 type CarouselProps = {
   children?: React.ReactNode;
   className?: string;
+  outerContainerClassName?: string;
   hideControls?: boolean;
 };
 
 export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
-  ({ children, className, hideControls }, ref) => {
+  ({ children, className, outerContainerClassName, hideControls }, ref) => {
     const [sectionIndex, setSectionIndex] = useState(1);
 
     const innerCarouselRef = useRef<HTMLDivElement>();
@@ -47,14 +48,14 @@ export const Carousel = forwardRef<HTMLDivElement, CarouselProps>(
     };
 
     return (
-      <div className="" ref={ref}>
+      <div className={cn(outerContainerClassName)} ref={addToRef}>
         <div className="overflow-x-scroll no-scrollbar" ref={outerCarouselRef}>
           <div
             className={cn(
               'flex items-stretch gap-2 md:gap-5 overflow-x-visible mx-auto snap-x snap-mandatory no-scrollbar',
               className
             )}
-            ref={addToRef}
+            ref={ref}
           >
             {children}
           </div>

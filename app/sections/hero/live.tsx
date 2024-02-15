@@ -1,7 +1,7 @@
 'use client';
 
 import { VideoPreviewFinder, WaveVideo } from './preview-finder';
-import { forwardRef, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import { LiveBadge } from '@/app/components/badge/live';
 import { waves } from './mocks/wave-videos';
 
@@ -46,16 +46,19 @@ type VideoPreviewProps = {
 
 export const VideoPreview = forwardRef<HTMLDivElement, VideoPreviewProps>(
   ({ video, isLive }, ref) => {
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+      if (!videoRef.current) return;
+      if (videoRef.current.readyState) videoRef.current.play();
+    }, []);
+
     return (
       <div
         className="max-w-[60rem] mx-auto w-full aspect-[390/221] lg:aspect-[960/442] xl:rounded-3xl bg-brand-primary relative"
         ref={ref}
       >
-        <video
-          className="w-full h-full object-cover lg:rounded-2xl"
-          disableRemotePlayback
-          autoPlay
-        >
+        <video className="w-full h-full object-cover lg:rounded-2xl" autoPlay>
           <source src={video.url} type="video/mp4" />
         </video>
         {isLive ? (

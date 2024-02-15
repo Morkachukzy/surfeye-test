@@ -1,3 +1,5 @@
+'use client';
+
 import { ChevronLeftIcon, MenuIcon } from '@/app/_assets/icons';
 import { AppLogo } from '@/app/_assets/vectors/logo';
 import { NavbarRoute } from './navbar-route';
@@ -5,7 +7,12 @@ import { navbarRoutes } from './routes';
 import { NavbarProfile } from './profile';
 import { NavbarTabs } from './tabs';
 
+import { cn } from '@/app/_theme/utils';
+import { useState } from 'react';
+
 export const Navbar = () => {
+  const [openItems, setOpenItems] = useState<string[]>([]);
+
   return (
     <>
       <div className="bg-brand-primary rounded-bl-brand-200 md:rounded-b-brand-200 overflow-hidden">
@@ -19,11 +26,21 @@ export const Navbar = () => {
           <span className="flex-1 lg:flex-none flex items-center justify-center">
             <AppLogo className="w-20 md:w-[5rem] lg:w-[6.6875rem]" />
           </span>
-          <div className="hidden lg:flex flex-row md:gap-6 lg:gap-10 xl:gap-[4.5rem] text-brand-light ">
+          <div
+            className={cn(
+              'hidden lg:flex flex-row items-start transition-all duration-500 md:gap-6 lg:gap-10 xl:gap-[4.5rem] text-brand-light',
+              { 'pt-16': openItems.length > 0 }
+            )}
+          >
             {navbarRoutes.map((route, index) => (
-              <NavbarRoute key={index} route={route} />
+              <NavbarRoute
+                key={index}
+                route={route}
+                setOpenItems={setOpenItems}
+                openItems={openItems}
+              />
             ))}
-            <NavbarProfile />
+            <NavbarProfile setOpenItems={setOpenItems} openItems={openItems} />
           </div>
           <div className="lg:hidden ml-auto absolute right-[8.4%]">
             <button>

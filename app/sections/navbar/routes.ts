@@ -12,7 +12,23 @@ export const navbarRoutes = [
     children: [
       {
         href: '/#sao-paulo',
-        label: 'Sao Paulo',
+        label: 'Porto',
+      },
+      {
+        href: '/#sao-paulo',
+        label: 'Cascais',
+      },
+      {
+        href: '/#sao-paulo',
+        label: 'Costa DA caprica',
+      },
+      {
+        href: '/#sao-paulo',
+        label: 'Peniche',
+      },
+      {
+        href: '/#sao-paulo',
+        label: 'Aljezur',
       },
     ],
   },

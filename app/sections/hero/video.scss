@@ -1,3 +1,34 @@
 video::-internal-media-controls-overlay-cast-button {
   display: none;
 }
+
+video::-internal-media-controls,
+video::-internal-media-controls-container,
+video::-media-controls,
+video::-media-controls-container {
+  display: none;
+}
+
+video::-webkit-media-controls-start-playback-button {
+  display: none;
+}
+
+video::-webkit-media-controls-container {
+  opacity: 0 !important;
+}
+
+*::-webkit-media-controls-panel {
+  display: none !important;
+  -webkit-appearance: none;
+}
+/* Old shadow dom for play button */
+*::--webkit-media-controls-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
+/* New shadow dom for play button */
+/* This one works */
+*::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}

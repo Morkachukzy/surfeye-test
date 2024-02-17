@@ -13,7 +13,7 @@ import { MobileNavbarDrawer } from './mobile-drawer';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export const Navbar = () => {
-  const [openItems, setOpenItems] = useState<string[]>([]);
+  const [openItems, setOpenItems] = useState<(string | JSX.Element)[]>([]);
 
   const { isOpen, open, close, toggle } = useDisclosure();
 

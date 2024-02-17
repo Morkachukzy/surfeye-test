@@ -9,8 +9,8 @@ import { NavbarRouteType } from './types';
 
 type NavbarRouteProps = {
   route: NavbarRouteType;
-  setOpenItems?: (isOpen: string[]) => void;
-  openItems?: string[];
+  setOpenItems?: (isOpen: (string | JSX.Element)[]) => void;
+  openItems?: (string | JSX.Element)[];
 };
 
 export const NavbarRoute = ({

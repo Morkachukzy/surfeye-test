@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +13,8 @@ main,
 }
 
 :root {
+  --font-exo: 'Exo 2', sans-serif;
+
   --brand-primary: 1, 36, 60; /* #01243C */
 
   --brand-light: 248, 248, 248; /* #F8F8F8 */
@@ -75,6 +79,7 @@ main,
 }
 
 body {
+  font-family: var(--font-exo);
   background-color: rgb(var(--brand-background));
   color: rgb(var(--brand-foreground));
 }

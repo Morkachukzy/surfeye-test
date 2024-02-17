@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-export { appFonts } from './core/font';
 import './globals.scss';
 
 type ThemeProviderProps = {

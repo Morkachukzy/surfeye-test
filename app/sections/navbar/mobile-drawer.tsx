@@ -29,7 +29,7 @@ export const MobileNavbarDrawerItem = ({
 
   return (
     <button
-      key={route.label}
+      key={route.id}
       className={cn(
         'flex items-start gap-3 leading-none transition-all duration-500 capitalize font-medium text-sm text-white '
       )}

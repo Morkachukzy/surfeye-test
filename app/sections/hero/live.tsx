@@ -49,6 +49,7 @@ export const VideoPreview = forwardRef<HTMLDivElement, VideoPreviewProps>(
     const videoRef = useRef<HTMLVideoElement>(null);
 
     useEffect(() => {
+      console.log('VIDEO', video);
       if (!videoRef.current) return;
       if (videoRef.current.readyState) videoRef.current.play();
     }, []);
@@ -58,7 +59,13 @@ export const VideoPreview = forwardRef<HTMLDivElement, VideoPreviewProps>(
         className="max-w-[60rem] mx-auto w-full aspect-[390/221] lg:aspect-[960/442] xl:rounded-3xl bg-brand-primary relative"
         ref={ref}
       >
-        <video className="w-full h-full object-cover lg:rounded-2xl" autoPlay>
+        <video
+          className="w-full h-full object-cover lg:rounded-2xl"
+          muted
+          loop
+          autoPlay
+          playsInline
+        >
           <source src={video.url} type="video/mp4" />
         </video>
         {isLive ? (

@@ -64,7 +64,7 @@ export const NavbarTabs = () => {
         >
           <button
             className={cn(
-              'inline-block w-brand-fit not-italic -mb-[1px] text-md md:text-lg font-semibold pt-2 pb-2 md:pb-3',
+              'inline-block w-brand-fit not-italic -mb-[1px] text-[15px] md:text-lg font-semibold pt-2 pb-2 md:pb-3',
               {
                 'border-b-2 mx-auto border-brand-primary ':
                   currentRoute === route.path,

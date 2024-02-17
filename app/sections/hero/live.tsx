@@ -50,8 +50,7 @@ export const VideoPreview = forwardRef<HTMLDivElement, VideoPreviewProps>(
 
     useEffect(() => {
       console.log('VIDEO', video);
-      if (!videoRef.current) return;
-      if (videoRef.current.readyState) videoRef.current.play();
+      // if (videoRef.current.readyState) videoRef.current.play();
     }, []);
 
     return (
@@ -65,6 +64,9 @@ export const VideoPreview = forwardRef<HTMLDivElement, VideoPreviewProps>(
           loop
           autoPlay
           playsInline
+          controlsList="nodownload nofullscreen noremoteplayback"
+          disablePictureInPicture
+          disableRemotePlayback
         >
           <source src={video.url} type="video/mp4" />
         </video>

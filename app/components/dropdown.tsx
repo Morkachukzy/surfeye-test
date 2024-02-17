@@ -16,6 +16,7 @@ type GenericDropdownProps = {
   onChange?: (value: string) => void;
   options?: GenericDropdownOption[];
   placeholder?: string | React.ReactNode;
+  readonly?: boolean;
 };
 
 export const GenericDropdown = ({
@@ -23,6 +24,7 @@ export const GenericDropdown = ({
   onChange,
   options = [],
   placeholder,
+  readonly,
 }: GenericDropdownProps) => {
   const { isOpen, toggle, close } = useDisclosure();
 
@@ -60,6 +62,7 @@ export const GenericDropdown = ({
         wide
         small
         rightIcon={<ChevronDownIcon className="w-4 h-2 stroke-brand-primary" />}
+        disabled={readonly}
       >
         {selectedLabel}
       </GenericButton>

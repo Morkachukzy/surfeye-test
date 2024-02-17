@@ -2,21 +2,13 @@
 
 import Image from 'next/image';
 import { SectionLayout } from '@/app/layouts/section';
-import { GenericDropdown } from '@/app/components/dropdown';
-import { useState } from 'react';
 import { GenericButton } from '@/app/components/button';
-import { GoogleMapIcon } from '@/app/_assets/icons';
-
-const dropdownOptions = [
-  { label: 'Sao Paulo', value: 'sao-paulo' },
-  { label: 'Portugal', value: 'portugal' },
-  { label: '30 min', value: 'dubai' },
-  { label: 'Venice', value: 'venice' },
-  { label: 'Barcelona', value: 'barcelona' },
-];
+import { ChevronDownIcon, GoogleMapIcon } from '@/app/_assets/icons';
+import { useDisclosure } from '@/app/hooks/use-disclosure';
+import { cn } from '@/app/_theme/utils';
 
 export const RecordingAreaSection = () => {
-  const [value, setValue] = useState('sao-paulo');
+  const { isOpen: isReadingMore, toggle } = useDisclosure();
 
   return (
     <SectionLayout
@@ -41,19 +33,44 @@ export const RecordingAreaSection = () => {
           <p className="mb-2 md:mb-4 uppercase font-bold text-brand-md md:text-xl text-left lg:text-center">
             About the recording area
           </p>
-          <p className="mb-3 font-normal md:font-medium text-brand-md md:text-lg leading-tight">
+          <p
+            className={cn(
+              'mb-3 font-normal md:font-medium text-brand-md md:text-lg leading-tight line-clamp-[7] md:line-clamp-[7] flex-1',
+              {
+                'line-clamp-none md:line-clamp-none': isReadingMore,
+              }
+            )}
+          >
             To be recorded by our camera, simply surf within the designated
             Recording area, stretching from Jardim na Praia to the pier. The
             prime time to surf and ensure high-quality footage at this spot is
-            during mid to high tide, especially in the mornings or afternoons,
-            with ideal wave conditions ranging from 1.5 to 2 meters.
+            during mid to high tide, especially in the mornings or midday. If
+            you do catch the beggining of the wave in our recording area but
+            then leave we wont be able to film the part outside of the recording
+            area. bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
+            bla bla bla bla bla bla bla bla bla bla blabla bla bla bla bla bla
+            bla bla bla bla bla bla blabla bla bla bla bla bla bla bla bla bla
+            bla bla blabla bla bla bla bla bla bla bla bla bla bla bla blabla
+            bla bla bla bla bla bla bla bla bla bla bla blabla bla bla bla bla
+            bla bla bla bla bla bla bla blabla bla bla bla bla bla bla bla bla
+            bla bla bla bla.
           </p>
-          <GenericDropdown
-            placeholder="Select recording area"
-            value={value}
-            options={dropdownOptions}
-            onChange={setValue}
-          />
+          <GenericButton
+            onClick={toggle}
+            variant="secondary"
+            className={cn('justify-between gap-8 shadow-brand-300')}
+            wide
+            small
+            rightIcon={
+              <ChevronDownIcon
+                className={cn('w-4 h-2 stroke-brand-primary transition-all', {
+                  'rotate-180': isReadingMore,
+                })}
+              />
+            }
+          >
+            Read more
+          </GenericButton>
 
           <div className="shadow-brand-600 mt-7  bg-white rounded-3xl px-6 py-6 lg:px-9 lg:py-10 flex items-center gap-8">
             <div className="flex-1 space-y-4 md:space-y-7">

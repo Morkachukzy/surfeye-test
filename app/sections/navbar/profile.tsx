@@ -12,11 +12,16 @@ type NavbarProfileProps = {
 };
 
 const routeLabel = 'Profile';
+/**
+ *
+ * @deprecated Has been integrated in the navbarRoutes map
+ * @returns
+ */
 export const NavbarProfile = ({
   setOpenItems,
   openItems = [],
 }: NavbarProfileProps) => {
-  const { isOpen, open, close, toggle } = useDisclosure();
+  const { isOpen, toggle } = useDisclosure();
 
   const toggleIsOpen = () => {
     const value = !isOpen;

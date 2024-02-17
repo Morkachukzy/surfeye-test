@@ -56,7 +56,7 @@ export const NavbarTabs = () => {
   };
 
   return (
-    <div className="border-b z-[9999] sticky top-0 bg-brand-light border-brand-primary border-opacity-15 flex items-stretch justify-between">
+    <div className="border-b z-30 sticky top-0 bg-brand-light border-brand-primary border-opacity-15 flex items-stretch justify-between">
       {routes.map((route, index) => (
         <div
           className="flex-1 text-center justify-between gap-5"

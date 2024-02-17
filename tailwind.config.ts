@@ -53,6 +53,7 @@ const config: Config = {
         'brand-900': 'var(--brand-shadow-900)',
         'brand-1000': 'var(--brand-shadow-1000)',
         'brand-1100': 'var(--brand-shadow-1100)',
+        'brand-1200': 'var(--brand-shadow-1200)',
       },
       borderRadius: {
         'brand-100': 'var(--brand-radius-100)',

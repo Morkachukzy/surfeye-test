@@ -23,4 +23,5 @@ export * from './user';
 export * from './wave';
 export * from './wave-height';
 export * from './wind';
+export * from './x';
 export * from './youtube';

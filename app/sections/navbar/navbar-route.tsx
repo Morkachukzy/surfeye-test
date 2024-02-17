@@ -5,19 +5,7 @@ import { cn } from '@/app/_theme/utils';
 import { useDisclosure } from '@/app/hooks/use-disclosure';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
-
-type BaseNavbarRoute = {
-  href: string;
-  label: string;
-  children?: undefined | null;
-};
-type ExtendedNavbarRoute = {
-  label: string;
-  href?: undefined | null;
-  children: BaseNavbarRoute[];
-};
-
-type NavbarRouteType = BaseNavbarRoute | ExtendedNavbarRoute;
+import { NavbarRouteType } from './types';
 
 type NavbarRouteProps = {
   route: NavbarRouteType;

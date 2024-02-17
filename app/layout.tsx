@@ -1,9 +1,17 @@
-import type { Metadata } from 'next';
-import RootProvider, { appFonts } from './provider';
+import type { Metadata, Viewport } from 'next';
+import RootProvider from './provider';
 
 export const metadata: Metadata = {
   title: 'Surfeye',
   description: 'A platform for surfing enthusiasts.',
+  appleWebApp: true,
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  minimumScale: 1.0,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -14,7 +22,7 @@ export default function RootLayout({
   return (
     <RootProvider>
       <html lang="en">
-        <body className={appFonts}>{children}</body>
+        <body>{children}</body>
       </html>
     </RootProvider>
   );

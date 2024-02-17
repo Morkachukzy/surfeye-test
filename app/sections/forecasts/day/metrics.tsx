@@ -16,13 +16,14 @@ export const ForecastDayMetrics = ({
   averageWind,
 }: ForecastDayMetricsProps) => {
   return (
-    <div className="py-4 px-4 md:px-8 flex-1 flex items-start max-w-[600px] w-full brand-min-desktop:max-w-none mx-auto brand-min-desktop:mx-[unset] justify-between gap-4">
+    <div className="py-4 px-4 md:px-8 flex-1 flex flex-wrap brand-min:flex-nowrap items-start max-w-[600px] w-full brand-min-desktop:max-w-none mx-auto brand-min-desktop:mx-[unset] justify-evenly brand-min:justify-between gap-4 brand-min:gap-3">
       <div className="space-y-1.5 md:space-y-0.5 flex-shrink-0">
         <p className=" uppercase text-brand-md md:text-lg text-center font-medium">
           Surf (m)
         </p>
         <p className="font-bold text-4xl">{averageSurfDistance}</p>
       </div>
+
       <div>
         <div className="space-y-1.5 md:space-y-0.5">
           <p className="uppercase text-brand-md md:text-lg text-center font-medium">
@@ -49,6 +50,7 @@ export const ForecastDayMetrics = ({
           </Badge>
         </div>
       </div>
+
       <div>
         <div className="space-y-1.5 md:space-y-0.5">
           <p className="uppercase text-brand-md md:text-lg text-center font-medium">

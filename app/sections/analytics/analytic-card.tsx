@@ -28,7 +28,7 @@ export const AnalyticCardTitle = ({
   return (
     <p
       className={cn(
-        'uppercase text-left font-medium text-brand-md md:text-lg mb-2.5 whitespace-nowrap',
+        'uppercase text-left font-medium text-sm brand-min:text-brand-md md:text-lg mb-2.5 whitespace-nowrap',
         className
       )}
     >
